@@ -1,0 +1,148 @@
+:root {
+
+    --color-100: #1D2984;
+    --color-200: #B2EB14;
+    --color-300: #504AF4;
+    --color-400: #FAFAF1;
+    --color-500: #AFC5F4;
+
+    --letra-100: 'agains_modern_football', agains_modern_football;
+    --letra-200: 'Monserrat', Monserrat;
+    --letra-300: 'PRIMETIME', PRIMETIME;
+    --letra-400: 'Staatliches-Regular', Staatliches-Regular;
+}
+
+@font-face {
+    font-family: "agains_modern_football";
+    src: url(/fonts/against_modern_football.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Staatliches-Regular";
+    src: url(/fonts/Staatliches-Regular.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Monserrat";
+    src: url(/fonts/Monserrat.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PRIMETIME";
+    src: url(/fonts/PRIMETIME.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.navbar {
+    background-image: url("/Image/Header.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 0px 40px 0px 40px;
+    height: 120px;
+}
+
+.wrapper-logo {
+    margin-bottom: 12px ;
+}
+
+
+#titulo {
+
+    font-family: var(--letra-100);
+    font-size: 40px;
+    color: #1D2984;
+
+}
+
+.wrapper-opc {
+    
+padding-left: 750px;
+}
+
+.ul-list{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.li-opc{
+    padding: 0px 30px 0px 0px;
+}
+
+.header-icon{
+    
+   
+    width: 60px;
+    height: 60px;
+}
+
+#subtitulo {
+
+    font-family: var(--letra-400);
+    font-size: 20px;
+    color: var(--color-100)
+}
+
+
+.wrapper-btn {
+    background-color: var(--color-500);
+    border-radius: 50px;
+    width: 200px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    margin-bottom: 12px ;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: var(--color-100);
+    font-family: var(--letra-400);
+    font-size: 20px;
+
+}
+
+
+.wrapper-perfil{
+   display: flex;
+   align-items: center;
+   margin-bottom: 12px;
+   border-color: var(--color-200);
+}
+
+.img-perfil{
+    border: 4px solid #B2EB14;
+    border-radius: 50%;
+   
+
+    height: 80px;
+    width: 80px;
+   
+}
