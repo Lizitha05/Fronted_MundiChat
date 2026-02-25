@@ -56,7 +56,9 @@
     box-sizing: border-box;
 }
 
-
+body{
+    background-color: var(--color-400);
+}
 
 .navbar {
     background-image: url("/Image/Header.png");
@@ -80,9 +82,9 @@
 
 }
 
-.wrapper-opc {
-    
-padding-left: 750px;
+.wrapper-opcLogin {
+
+    padding-left: 750px;
 }
 
 .ul-list{
@@ -106,7 +108,7 @@ padding-left: 750px;
 #subtitulo {
 
     font-family: var(--letra-400);
-    font-size: 20px;
+    font-size: 25px;
     color: var(--color-100)
 }
 
@@ -125,7 +127,7 @@ padding-left: 750px;
     text-decoration: none;
     color: var(--color-100);
     font-family: var(--letra-400);
-    font-size: 20px;
+    font-size: 25px;
 
 }
 

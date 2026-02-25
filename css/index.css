@@ -1,4 +1,166 @@
-.mb-0{
-    font-family: "Staatliches", sans-serif;
-    color:#00008B;
+:root {
+
+    --color-100: #1D2984;
+    --color-200: #B2EB14;
+    --color-300: #504AF4;
+    --color-400: #FAFAF1;
+    --color-500: #AFC5F4;
+    --color-600: #000000;
+    --letra-100: 'agains_modern_football', agains_modern_football;
+    --letra-200: 'Monserrat', Monserrat;
+    --letra-300: 'PRIMETIME', PRIMETIME;
+    --letra-400: 'Staatliches-Regular', Staatliches-Regular;
+}
+
+@font-face {
+    font-family: "agains_modern_football";
+    src: url(/fonts/against_modern_football.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Staatliches-Regular";
+    src: url(/fonts/Staatliches-Regular.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Monserrat";
+    src: url(/fonts/Monserrat.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PRIMETIME";
+    src: url(/fonts/PRIMETIME.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.wrapper-NL {}
+
+.img-nl {
+
+    display: flex;
+    margin: auto;
+    width: 1324px;
+    height: 730px;
+
+}
+
+
+.titulo {
+
+    font-family: var(--letra-300);
+    color: var(--color-100);
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+}
+
+
+.conteinerCards {
+display: grid;
+justify-content: center;
+
+
+}
+
+
+.flexCard{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2000px;
+}
+
+
+.card{
+    margin: 65px;
+}
+
+
+.card-text {
+    width: 400px;
+    height: 300px;
+    border-radius: 50px;
+   
+
+}
+
+.icon-search{
+    width: 30px;
+    height: 30px;
+}
+
+
+.card-link{
+    font-family: var(--letra-200);
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--color-600);
+    text-decoration: none;
+
+}
+
+
+.card-title{
+    width: 400px;
+    font-family: var(--letra-400);
+    font-size: 40px;
+    padding: 10px;
+}
+
+.wrapper-places {
+    background-color: var(--color-200);
+    border-radius: 50px;
+    width: 380px;
+    height: 60px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:100px
+}
+
+.btn-places {
+
+    font-family: var(--letra-200);
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--color-600);
+    text-decoration: none;
+    
+}
+
+
+.icon-flecha{
+    width: 60px;
+    height:60px;
+      
+
 }
