@@ -192,3 +192,8 @@ body {
     border: none;
 
 }
+
+a{
+    text-decoration: none;
+    color: var(--color-100);
+}
