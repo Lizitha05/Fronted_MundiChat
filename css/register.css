@@ -1,0 +1,194 @@
+:root {
+
+    --color-100: #1D2984;
+    --color-200: #B2EB14;
+    --color-300: #504AF4;
+    --color-400: #FAFAF1;
+    --color-500: #AFC5F4;
+    --color-600: #000000;
+    --letra-100: 'agains_modern_football', agains_modern_football;
+    --letra-200: 'Monserrat', Monserrat;
+    --letra-300: 'PRIMETIME', PRIMETIME;
+    --letra-400: 'Staatliches-Regular', Staatliches-Regular;
+}
+
+@font-face {
+    font-family: "agains_modern_football";
+    src: url(/fonts/against_modern_football.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Staatliches-Regular";
+    src: url(/fonts/Staatliches-Regular.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Monserrat";
+    src: url(/fonts/Monserrat.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PRIMETIME";
+    src: url(/fonts/PRIMETIME.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-image: url("/Image/fondo-icon.png");
+
+    background-position: center;
+
+}
+
+
+.wrapperReg {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.bodyReg {
+
+    width: 1354px;
+    height: 633px;
+    box-shadow: 0px 7px 6px rgb(29, 41, 132, 0.5);
+    background-color: var(--color-200);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+
+
+.perfilReg {
+    display: grid;
+    gap: 10px;
+    margin: 40px;
+}
+
+
+.imgReg {
+    border-radius: 100%;
+    width: 450px;
+    height: 450px;
+}
+
+.wrapperImg {
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.img-upload {
+
+
+    font-family: var(--letra-400);
+    color: var(--color-400);
+    font-size: 20px;
+    background-color: var(--color-100);
+    width: 100px;
+    height: 30px;
+    border-radius: 50px;
+    border: none;
+
+}
+
+
+.gridReg {
+
+    width: 793px;
+    height: 420px;
+    display: grid;
+}
+
+
+.flexReg {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.tReg {
+
+    font-family: var(--letra-400);
+    font-size: 80px;
+    color: var(--color-100);
+    text-align: center;
+
+}
+
+
+
+
+.lReg {
+    font-family: var(--letra-400);
+    font-size: 28px;
+    color: var(--color-100);
+    text-align: left;
+    padding: 0px 170px 0px 0px;
+}
+
+
+.iReg {
+    background-color: var(--color-100);
+    border: none;
+    border-radius: 24px;
+    width: 350px;
+    height: 39px;
+
+    font-family: var(--letra-200);
+    font-size: 25px;
+    color: var(--color-400);
+    text-align: center;
+
+}
+
+
+
+.wrapperBtn {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+}
+
+
+.btn-reg {
+
+    font-family: var(--letra-400);
+    font-size: 30px;
+    color: var(--color-100);
+    width: 350px;
+    height: 39px;
+    border-radius: 50px;
+    border: none;
+
+}
