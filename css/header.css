@@ -5,7 +5,7 @@
     --color-300: #504AF4;
     --color-400: #FAFAF1;
     --color-500: #AFC5F4;
-
+    --color-600: #000000;
     --letra-100: 'agains_modern_football', agains_modern_football;
     --letra-200: 'Monserrat', Monserrat;
     --letra-300: 'PRIMETIME', PRIMETIME;
@@ -55,6 +55,9 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+
+
 
 body{
     background-color: var(--color-400);
@@ -109,7 +112,8 @@ body{
 
     font-family: var(--letra-400);
     font-size: 25px;
-    color: var(--color-100)
+    color: var(--color-100);
+    text-decoration: none;
 }
 
 

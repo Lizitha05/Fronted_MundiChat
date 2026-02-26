@@ -1,0 +1,152 @@
+:root {
+
+    --color-100: #1D2984;
+    --color-200: #B2EB14;
+    --color-300: #504AF4;
+    --color-400: #FAFAF1;
+    --color-500: #AFC5F4;
+    --color-600: #000000;
+    --letra-100: 'agains_modern_football', agains_modern_football;
+    --letra-200: 'Monserrat', Monserrat;
+    --letra-300: 'PRIMETIME', PRIMETIME;
+    --letra-400: 'Staatliches-Regular', Staatliches-Regular;
+}
+
+@font-face {
+    font-family: "agains_modern_football";
+    src: url(/fonts/against_modern_football.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Staatliches-Regular";
+    src: url(/fonts/Staatliches-Regular.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Monserrat";
+    src: url(/fonts/Monserrat.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PRIMETIME";
+    src: url(/fonts/PRIMETIME.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+background-image: url("/Image/fondo-icon.png");
+
+background-position: center;
+
+}
+
+.wrapperLogin{
+    
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 40px;
+
+}
+
+
+.bodyLogin {
+
+
+    width: 748px;
+    height: 588px;
+    background-color: var(--color-200);
+    border-radius: 50px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    
+}
+.tLogin{
+
+    font-family: var(--letra-400);
+    font-size: 80px;
+    color: var(--color-100);
+    text-align: center;
+    padding-top: 57px;
+}
+
+
+.lLogin{
+    font-family: var(--letra-400);
+    font-size: 35px;
+    color: var(--color-100);
+    text-align: center;
+    padding: 4px 0px 4px 0px;
+}
+
+
+.iLogin{
+    background-color: var(--color-100);
+    border: none;
+    border-radius:25px; 
+    width: 400px;
+    height: 60px;
+    margin: 0 auto;
+    font-family: var(--letra-200);
+    font-size: 25px;
+    color: var(--color-400);
+    text-align: center;
+}
+
+.txtReg{
+    font-family: var(--letra-200);
+    color: var(--color-400);
+    font-weight:500;
+    font-size: 20px;
+    padding-top: 20px;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bolder;
+    color: var(--color-100);
+}
+
+.wrapperBtn{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+
+.btn-reg {
+
+    font-family: var(--letra-400);
+    font-size: 40px;
+    color:var(--color-100);
+    width: 214px;
+    height: 70px;
+    border-radius: 50px;
+    border: none;
+   
+}
