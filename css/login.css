@@ -145,6 +145,8 @@ a{
     font-family: var(--letra-400);
     font-size: 40px;
     color:var(--color-100);
+    background-color: #FAFAF1;
+    text-align: center;
     width: 214px;
     height: 70px;
     border-radius: 50px;
