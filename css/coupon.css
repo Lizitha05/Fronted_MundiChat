@@ -1,0 +1,95 @@
+:root {
+
+    --color-100: #1D2984;
+    --color-200: #B2EB14;
+    --color-300: #504AF4;
+    --color-400: #FAFAF1;
+    --color-500: #AFC5F4;
+    --color-600: #000000;
+    --letra-100: 'agains_modern_football', agains_modern_football;
+    --letra-200: 'Monserrat', Monserrat;
+    --letra-300: 'PRIMETIME', PRIMETIME;
+    --letra-400: 'Staatliches-Regular', Staatliches-Regular;
+}
+
+@font-face {
+    font-family: "agains_modern_football";
+    src: url(/fonts/against_modern_football.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Staatliches-Regular";
+    src: url(/fonts/Staatliches-Regular.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Monserrat";
+    src: url(/fonts/Monserrat.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PRIMETIME";
+    src: url(/fonts/PRIMETIME.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    background-image: url("/Image/fondo-icon.png");
+
+    background-position: center;
+
+}
+
+.form-coupon{
+
+     align-items: center;
+}
+.coupon-section{
+    display: flex;
+    align-items: center;
+    width: 1240px;
+    height: 640px;
+    box-shadow: 0px 7px 6px rgb(29, 41, 132, 0.5);
+    background-color: #FFFFFF;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.img-coupon {
+   position:inherit; 
+   top: 150px; 
+   right: 250px; 
+   width: 40px; 
+   height: 40px; 
+   cursor: pointer;
+  
+}
+
+.title-coupon {
+    font-family: var(--color-300);
+    font-size: 30px;
+}
