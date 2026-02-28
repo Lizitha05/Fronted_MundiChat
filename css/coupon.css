@@ -66,21 +66,29 @@ body {
 
 .form-coupon{
 
-     align-items: center;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 .coupon-section{
     display: flex;
     align-items: center;
-    width: 1240px;
-    height: 640px;
-    box-shadow: 0px 7px 6px rgb(29, 41, 132, 0.5);
+    gap: 30px;
+
+    width: 900px;
+    padding: 25px 35px;
+
     background-color: #FFFFFF;
-    border-radius: 50px;
-    margin-top: 10px;
+    border-radius: 25px;
+    box-shadow: 0px 7px 6px rgba(29, 41, 132, 0.5);
+
+    border: 5px solid var(--color-200);
 }
 
 .img-coupon {
-   position:inherit; 
+    display: flex;
+    justify-content: center;
    top: 150px; 
    right: 250px; 
    width: 40px; 
@@ -92,4 +100,8 @@ body {
 .title-coupon {
     font-family: var(--color-300);
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-right: 50px;
 }
