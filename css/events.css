@@ -63,3 +63,36 @@ body {
     background-position: center;
 
 }
+
+.img-top-hd{
+   
+
+}
+
+.img-barraCOD{
+ width: 100%;
+    height: 100%;
+    object-fit: cover;
+   margin-bottom: 20px;
+}
+
+.titulo-events{
+    font-family: var(--letra-400);
+    font-size:90px ;
+    color: #504AF4;
+}
+
+.nose{
+    display: flex;
+    align-items: center;
+    
+}
+
+.section-event{
+    background-color:#504AF4;
+}
+
+#vehicle1{
+    margin-left: 20px;
+    size: 50px;
+}
