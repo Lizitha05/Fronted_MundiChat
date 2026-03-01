@@ -65,12 +65,10 @@ body {
 }
 
 .img-top-hd{
-   
-
 }
 
 .img-barraCOD{
- width: 100%;
+    width: 100%;
     height: 100%;
     object-fit: cover;
    margin-bottom: 20px;
@@ -80,19 +78,115 @@ body {
     font-family: var(--letra-400);
     font-size:90px ;
     color: #504AF4;
+    margin-left: 30px;
 }
 
-.nose{
+.event-content{
     display: flex;
     align-items: center;
-    
+    margin-bottom: 50px;
 }
 
 .section-event{
-    background-color:#504AF4;
+   background-color:white;
+    border: dashed;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin-left: 30px;
 }
 
-#vehicle1{
-    margin-left: 20px;
-    size: 50px;
+/*ESTE ES EL CHECKBOX*/
+.custom-check input {
+    display: none;
+}
+
+.checkmark {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #5b5be6;
+    border-radius: 8px;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-left: 70px;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 10px;
+    width: 15px;
+    height: 30px;
+    border-right: 4px solid #5b5be6;
+    border-bottom: 4px solid #5b5be6;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.custom-check input:checked + .checkmark::after {
+    opacity: 1;
+}
+
+/*ESTE ES EL BOOKMARK*/
+.bookmark-toggle input {
+    display: none;
+}
+
+.bookmark-icon {
+    width: 50px;
+    height: 70px;
+    border: 4px solid #5b5be6;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    margin-left: 50px;
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        50% 75%,
+        0 100%
+    );
+
+    transition: 0.25s ease;
+}
+
+.bookmark-icon::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    top: 12px;
+    width: 14px;
+    height: 28px;
+    border-right: 4px solid #5b5be6;
+    border-bottom: 4px solid #5b5be6;
+    transform: rotate(45deg);
+
+    opacity: 0;
+    transition: 0.2s ease;
+}
+
+.bookmark-toggle input:checked + .bookmark-icon {
+    background-color: rgba(91,91,230,0.15);
+}
+
+.bookmark-toggle input:checked + .bookmark-icon::after {
+    opacity: 1;
+}
+
+.event{
+    color: #B2EB14;
+    font-family: var(--letra-400);
+    font-size: 35px;
+}
+
+.content{
+    font-family: var(--letra-200);
+    font-size: 20px;
 }
