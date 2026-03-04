@@ -190,4 +190,3 @@ body {
 .bookmark-toggle input:checked + .bookmark-icon::after {
     opacity: 1;
 }
-
