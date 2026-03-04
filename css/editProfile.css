@@ -55,3 +55,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+
+    
+    background-image: url("/Image/fondo-icon.png");
+
+    background-position: center;
+
+}
+
+.edit-profile-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-EditProf {
+    width: 250px;
+    height: 98px;
+    font-family: var(--letra-400);
+    font-size: 40px;
+    background-color: var(--color-200);
+    border: none;
+    border-radius: 100px;
+    align-self: center;
+}
