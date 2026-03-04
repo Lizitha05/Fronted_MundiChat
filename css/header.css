@@ -63,6 +63,10 @@ body{
     background-color: var(--color-400);
 }
 
+.link {
+    text-decoration: none;
+}
+
 .navbar {
     background-image: url("/Image/Header.png");
     background-repeat: no-repeat;

@@ -10,27 +10,32 @@
 <body>
      <div id="header-login"></div>
 
-     <div class="edit-profile-section">
+    <div class="edit-profile-section">
 
-        <h3>EDITAR PERFIL</h3>
+        <h3 class="Change-prof-title">EDITAR PERFIL</h3>
 
-        <form>
-            <p>NOMBRE COMPLETO</p>
+        <div class="photo-change-profile">
+             <img class="imgProfChange" src="/Image/perfil.png" alt="">
+             <button class="btn-PhotoProf">Cambiar foto</button>
+        </div>
+
+        <form class="fill-chage-profile">
+            <label>NOMBRE COMPLETO</label>
             <input type="text" class="new-name">
-            <p>NICK NAME</p>
+            <label>NICK NAME</label>
             <input type="text" class="new-nick-name">
-            <p>FECHA DE NACIMIENTO</p>
+            <label>FECHA DE NACIMIENTO</label>
             <input type="date" class="new-date-birth">
-            <p>CORREO ELECTRONICO</p>
+            <label>CORREO ELECTRONICO</label>
             <input type="text" class="new-email">
-            <p>CONTRASENA</p>
+            <label>CONTRASENA</label>
             <input type="text" class="new-password">
 
         </form>
 
         <div class="flexBtn">
-                    <button class="btn-EditProf">Mis eventos</a></button>
-                    <button class="btn-EditProf">Mis cupones</a></button>
+                    <button class="btn-EditProf"><a class="link" href="/Html/profile.html">REGRESAR</a></button>
+                    <button class="btn-EditProf">GUARDAR</button>
         </div>
 
      </div>
