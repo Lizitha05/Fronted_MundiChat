@@ -64,3 +64,49 @@ body {
     background-position: center;
 
 }
+
+.notification-section{
+    background-color: #1D2984;
+    width: 70%;
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.notification{
+    display: flex;
+    align-items: center;
+    background-color: #AFC5F4;
+    border-radius: 20px;
+    padding: 20px;
+    padding-left: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.content-titke{
+    font-family: var(--letra-400);
+    color: #1D2984;
+    font-size: 50px;
+}
+
+.content-notification{
+    font-family: var(--letra-200);
+    color: white;
+    font-size: 25px;
+}
+
+.Wrapper-Img-Notification{
+
+}
+
+.img-notification-trash{
+    margin-left: 800px;
+    width: 200px;
+    height: 200px;
+}
