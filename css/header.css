@@ -91,25 +91,26 @@ body{
 
 .wrapper-opcLogin {
 
-    padding-left: 750px;
+    padding-left: 600px;
 }
 
 .ul-list{
     list-style-type: none;
     display: flex;
     justify-content: center;
-    
+      
 }
 
 .li-opc{
-    padding: 0px 30px 0px 0px;
+    padding-left: 20px;
 }
 
 .header-icon{
     
-   
     width: 60px;
     height: 60px;
+
+    
 }
 
 #subtitulo {
