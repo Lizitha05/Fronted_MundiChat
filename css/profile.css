@@ -98,16 +98,21 @@ body {
 
 .data {
     display: grid;
-    gap: 30px;
+    gap: 20px;
 }
 
 .lData {
-    font-family: var(--color-300);
+    font-family: var(--letra-400);
+    font-weight: bold;
     font-size: 30px;
-
+    
+    background-color: #B2EB14;
+    border-radius: 10px;
+    padding: 5px;
 }
 
 #myProf {
+    text-align: left;
     font-family: var(--letra-400);
     color: var(--color-100);
     font-size: 100px;
@@ -116,23 +121,25 @@ body {
 .flexBtn {
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 693px;
     height: 98px;
-    gap: 20px;
+    gap: 100px;
 
 }
 
 .link {
     text-decoration: none;
-    color: var(--color-100);
+    color: var(--color-400);
 }
 
 .btn-Prof {
     width: 250px;
     height: 98px;
     font-family: var(--letra-400);
+    
     font-size: 40px;
-    background-color: var(--color-200);
+    background-color: var(--color-100);
     border: none;
     border-radius: 100px;
     align-self: center;
@@ -140,16 +147,48 @@ body {
 
 .imgEdit {
    position: absolute; 
-   top: 150px; 
+   top: 210px; 
   
-   right: 250px; 
-   width: 40px; 
-   height: 40px; 
+   right: 190px; 
+   width: 50px; 
+   height: 50px; 
    cursor: pointer;
+   transition: all 0.6 ease-in;
+
+}
+
+.imgEdit:hover{
+  background-color: var(--color-200);
+  border-radius: 50%;
+  transform:scale(1.1)
+}
+
+.wrapperTooltip{
+  
+
+}
+
+
+
+.tooltiptext {
+   position: absolute;
+   top: 260px; 
+   right: 150px; 
+   
+  visibility: hidden; 
+  width: 130px;
+  
+  font-family: var(--letra-200);
+  color: var(--color-100);
+  text-align: center;
+  font-size: 15px;
+ 
+  border-radius: 6px;
+
+  background-color: var(--color-200);
   
 }
 
-.wrapperImg{
-    display:flex;
-    flex-direction: column;
+.wrapperTooltip:hover .tooltiptext {
+  visibility: visible;
 }

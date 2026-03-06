@@ -41,9 +41,13 @@
         <div class="bodyReg">
 
             <div class="perfilReg">
-                <img class="imgReg" src="/Image/perfil.png" alt="">
-             
 
+                <input type="file" id="fileOpeneReg" style="display:none" accept="image/*">
+
+
+                <img id="preview" class="imgReg" src="/Image/perfil.png" alt="" onclick="document.getElementById('fileOpeneReg').click()">
+            
+              
             </div>
 
 
@@ -91,14 +95,7 @@
                 </div>
 
 
-                <div class="flexReg">
-                
-                    <div class="wrapperImg">
-                          <button class="img-upload">Foto</button>
-                    </div>
-                  
-                
-                </div>
+               
             </div>
 
 
@@ -109,5 +106,7 @@
 
    
 </body>
+
+<script src="/js/register.js"></script>
 
 </html>
