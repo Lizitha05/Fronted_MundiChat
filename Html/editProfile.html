@@ -15,21 +15,23 @@
         <h3 class="Change-prof-title">EDITAR PERFIL</h3>
 
         <div class="photo-change-profile">
-             <img class="imgProfChange" src="/Image/perfil.png" alt="">
-             <button class="btn-PhotoProf">Cambiar foto</button>
+           
+            <input type="file" id="fileOpeneReg" style="display:none" accept="image/*">
+            <img id="preview" class="imgProfChange" src="/Image/perfil.png" alt="" onclick="document.getElementById('fileOpeneReg').click()">
+    
         </div>
 
         <form class="fill-chage-profile">
             <label>NOMBRE COMPLETO</label>
-            <input type="text" class="new-name">
+            <input type="text" id="new-name" class="iEdit">
             <label>NICK NAME</label>
-            <input type="text" class="new-nick-name">
+            <input type="text" id="new-nick-name" class="iEdit">
             <label>FECHA DE NACIMIENTO</label>
-            <input type="date" class="new-date-birth">
+            <input type="date" id="new-date-birth" class="iEdit">
             <label>CORREO ELECTRONICO</label>
-            <input type="text" class="new-email">
-            <label>CONTRASENA</label>
-            <input type="text" class="new-password">
+            <input type="text" id="new-email" class="iEdit">
+            <label>CONTRASEñA</label>
+            <input type="text" id="new-password" class="iEdit">
 
         </form>
 
@@ -43,5 +45,6 @@
 </body>
 
 <script src="/js/partial.js"></script>
+<script src="/js/editProfile.js"></script>
 
 </html>

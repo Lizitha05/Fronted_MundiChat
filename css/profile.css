@@ -147,9 +147,9 @@ body {
 
 .imgEdit {
    position: absolute; 
-   top: 210px; 
+   top: 200px; 
   
-   right: 190px; 
+   right: 450px; 
    width: 50px; 
    height: 50px; 
    cursor: pointer;
@@ -173,7 +173,7 @@ body {
 .tooltiptext {
    position: absolute;
    top: 260px; 
-   right: 150px; 
+   right: 410px; 
    
   visibility: hidden; 
   width: 130px;
@@ -181,12 +181,13 @@ body {
   font-family: var(--letra-200);
   color: var(--color-100);
   text-align: center;
-  font-size: 15px;
+  font-size: 10px;
+  font-weight: bold;
  
   border-radius: 6px;
-
+/* 
   background-color: var(--color-200);
-  
+   */
 }
 
 .wrapperTooltip:hover .tooltiptext {
