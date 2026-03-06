@@ -79,14 +79,15 @@ body {
 .notification{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: #AFC5F4;
     border-radius: 20px;
     padding: 20px;
-    padding-left: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
+}
+
+.notfication-title-time{
+    flex: 1;
 }
 
 .content-titke{
@@ -106,7 +107,6 @@ body {
 }
 
 .img-notification-trash{
-    margin-left: 800px;
-    width: 200px;
-    height: 200px;
+    width: 80px;
+    height: 80px;
 }
