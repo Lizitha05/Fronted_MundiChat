@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,40 +11,57 @@
 
 <body>
 
-     <div id="header-login"></div>
+    <div id="header-login"></div>
 
-     <div class="notification-section">
+    <div class="notification-section">
 
         <div class="notification">
-            <div class="notfication-title-time">
-                <p class="content-titke">¡HOLA PESCADO!</p>
-                <p class="content-notification">30 min</p>
-                <p class="content-notification">"zuazeño" ha aceptado la invitación</p>
+
+            <div class="colorNotification">
+                <div class="notification-title-time">
+                    <p class="content-title">¡HOLA PESCADO!</p>
+                    <p class="content-time">30 min</p>
+
+                </div>
+                <div class="notfication-content-notifcation">
+
+                    <p class="content-notification">"zuazeño" ha aceptado la invitación</p>
+                </div>
+
             </div>
 
-            <img class="img-notification-trash" src="/Image/trash-bin-icon.png" alt="">  
+
+        <button id="btn-delNot"> <img class="img-notification-trash" src="/icons/icon-borrar.png" alt=""></button>
+
         </div>
+        
+        
+        <div class="notification">
 
-         <div class="notification">
-            <div class="notfication-title-time">
-                <p class="content-titke">¡HOLA PESCADO!</p>
-                <p class="content-notification">30 min</p>
-                <p class="content-notification">"zuazeño" ha aceptado la invitación</p>
+            <div class="colorNotification">
+                <div class="notification-title-time">
+                    <p class="content-title">¡HOLA PESCADO!</p>
+                    <p class="content-time">30 min</p>
+
+                </div>
+                <div class="notfication-content-notifcation">
+
+                    <p class="content-notification">"zuazeño" ha aceptado la invitación</p>
+                </div>
+
             </div>
 
-            <div class="Wrapper-Img-Notification">
-                <img class="img-notification-trash" src="/Image/trash-bin-icon.png" alt="">
-            </div>
-
+              <button id="btn-delNot"> <img class="img-notification-trash" src="/icons/icon-borrar.png" alt=""></button>
             
-              
+           
+
         </div>
-
-
-     </div>
+        
+    </div>
 
 </body>
 
 <script src="/js/partial.js"></script>
+<script src="/js/chatNotifcation.js"></script>
 
 </html>

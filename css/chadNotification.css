@@ -58,14 +58,14 @@
 
 body {
 
-    
+
     background-image: url("/Image/fondo-icon.png");
 
     background-position: center;
 
 }
 
-.notification-section{
+.notification-section {
     background-color: #1D2984;
     width: 70%;
     padding: 20px;
@@ -76,37 +76,76 @@ body {
     margin-bottom: 20px;
 }
 
-.notification{
+.notification {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #AFC5F4;
+
     border-radius: 20px;
     padding: 20px;
     margin: 20px;
 }
 
-.notfication-title-time{
-    flex: 1;
+.colorNotification {
+    width: 760px;
+    height: 200px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: var(--color-500);
+    background-image: url(/Image/marco-notification.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
-.content-titke{
+.notification-title-time {
+
+    display: flex;
+    align-items: center;
+    gap: 250px;
+    width: 682px;
+    height: 95px;
+}
+
+.content-title {
     font-family: var(--letra-400);
     color: #1D2984;
-    font-size: 50px;
+    font-size: 60px;
 }
 
-.content-notification{
+.content-time {
+    font-family: var(--letra-200);
+    font-size: 30px;
+    color: var(--color-300);
+}
+
+.content-notification {
     font-family: var(--letra-200);
     color: white;
     font-size: 25px;
 }
 
-.Wrapper-Img-Notification{
+.Wrapper-Img-Notification {}
 
-}
-
-.img-notification-trash{
+.img-notification-trash {
     width: 80px;
     height: 80px;
+    background-image: url(/icons/icon-borrar.png);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+    
+}
+
+.img-notification-trash:hover {
+ 
+    scale: 1.1;
+   
+}
+
+
+button {
+
+    background-color: transparent;
+    border: none;
 }
