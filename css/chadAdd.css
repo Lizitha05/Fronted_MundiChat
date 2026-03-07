@@ -84,13 +84,17 @@ body {
 }
 
 .subtitle1{
-    font-family: var(--letra-100);
+    font-family: var(--letra-400);
     font-size: 45px;
+    font-weight: bold;
+    color: var(--color-100);
+    
 }
 
 .subtitle2{
     font-family: var(--letra-400);
     font-size: 40px;
+    color: var(--color-100);
 }
 
 input{
@@ -103,7 +107,13 @@ input{
 
 .new-email{
     width: 50%;
+    border: none;
+    font-family: var(--letra-200);
     font-size: 25px;
+    padding: 10px;
+
+    
+    outline-color: #AFC5F4;
 }
 
 .btn-SendInvitation-AddFriend{
@@ -114,6 +124,7 @@ input{
     font-size: 25px;
     background-color: #504AF4;
     color:#FAFAF1;
+    border: none;
 }
 
 /*section 2*/
@@ -123,6 +134,8 @@ label{
     font-size: 50px;
     margin-left: 20px;
     color: #AFC5F4;
+    padding-left: 75px;
+    
 }
 
 p{
