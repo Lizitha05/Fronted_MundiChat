@@ -65,48 +65,86 @@ body {
 }
 
 .img-top-hd{
+    text-align: center;
 }
 
 .img-barraCOD{
     width: 100%;
     height: 100%;
-    object-fit: cover;
-   margin-bottom: 20px;
+   
 }
 
 .titulo-events{
     font-family: var(--letra-400);
     font-size:90px ;
     color: #504AF4;
-    margin-left: 30px;
+    margin-left: 100px;
+    width: 600px;
+    height: 120px;
+    text-align: center
 }
 
 .event-content{
     display: flex;
     align-items: center;
-    margin-bottom: 50px;
+    margin: 50px 100px 50px 100px;
 }
 
 .section-event{
-   background-color:white;
-    border: dashed;
-    border-radius: 20px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    margin-left: 30px;
+   
+    background-image: url(/Image/container-textCard.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding: 30px;
+    width: 600px;
+    height: 300px;
+
+    display: grid;
+    justify-content: center;
+    align-items:center ;
+   
 }
 
 .event{
     color: #B2EB14;
     font-family: var(--letra-400);
     font-size: 35px;
+    height: 300px;
+    width: 516px;
+    height: 40px;
+    text-align: center
 }
 
 .content{
     font-family: var(--letra-200);
     font-size: 20px;
+    color: #1D2984;
+    text-align: center;
+     width: 520px;
+    height: 72px;
+}
+
+.hora-time{
+    display: flex;
+    align-content: center;
+    justify-content: left;
+    gap: 60px;
+    text-align: center;
+    width: 520px;
+    height: 24px;
+    margin: 30px 0px 0px 0px;
+}
+
+input{
+    border: none;
+    background-color: transparent;
+    
+}
+
+.iEvent{
+    font-family: var(--letra-200);
+    color: #1D2984;
 }
 
 /*ESTE ES EL BOOKMARK*/
@@ -115,10 +153,12 @@ body {
 }
 
 .checkmark {
-    width: 60px;
-    height: 60px;
-    border: 4px solid #5b5be6;
-    border-radius: 8px;
+    width: 84px;
+    height: 84px;
+    background-image: url(/icons/icon-noCheck.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -128,8 +168,8 @@ body {
 .checkmark::after {
     content: "";
     position: absolute;
-    left: 18px;
-    top: 10px;
+    left: 35px;
+    top: 25px;
     width: 15px;
     height: 30px;
     border-right: 4px solid #5b5be6;
@@ -137,11 +177,22 @@ body {
     transform: rotate(45deg);
     opacity: 0;
     transition: 0.2s ease;
+
+
+   
+}
+
+
+.custom-check input:checked + .checkmark {
+    background-color: rgba(91,91,230,0.15);
 }
 
 .custom-check input:checked + .checkmark::after {
     opacity: 1;
 }
+
+
+
 
 /*ESTE ES EL BOOKMARK*/
 .bookmark-toggle input {
@@ -149,21 +200,18 @@ body {
 }
 
 .bookmark-icon {
-    width: 50px;
-    height: 70px;
-    border: 4px solid #5b5be6;
+    width: 90px;
+    height: 90px;
+    background-image: url(/icons/icon-save.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: inline-block;
     position: relative;
     cursor: pointer;
     margin-left: 50px;
 
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        100% 100%,
-        50% 75%,
-        0 100%
-    );
+
 
     transition: 0.25s ease;
 }
@@ -171,16 +219,18 @@ body {
 .bookmark-icon::after {
     content: "";
     position: absolute;
-    left: 14px;
-    top: 12px;
-    width: 14px;
-    height: 28px;
-    border-right: 4px solid #5b5be6;
-    border-bottom: 4px solid #5b5be6;
+    left: 38px;
+    top: 25px;
+    width: 15px;
+    height: 30px;
+    border-right: 4px solid #504AF4;
+    border-bottom: 4px solid #504AF4;
     transform: rotate(45deg);
 
     opacity: 0;
     transition: 0.2s ease;
+
+    
 }
 
 .bookmark-toggle input:checked + .bookmark-icon {

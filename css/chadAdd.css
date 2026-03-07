@@ -116,6 +116,12 @@ input{
     outline-color: #AFC5F4;
 }
 
+.new-email::placeholder{
+    font-family: var(--letra-200);
+    font-size: 20px;
+    color: var(--color-400);
+}
+
 .btn-SendInvitation-AddFriend{
     margin: 20px;
     padding: 10px;
