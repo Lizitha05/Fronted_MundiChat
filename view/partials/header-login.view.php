@@ -40,7 +40,7 @@
                         <a href="/chatAdd"><img class="header-icon" src="/icons/icon-agregar.png" alt=""></a>
                     </li>
                     <li class="li-opc">
-                        <a href="/messageChat"><img class="header-icon" src="/icons/icon-mensaje.png" alt=""></a>
+                        <a href="/message"><img class="header-icon" src="/icons/icon-mensaje.png" alt=""></a>
                     </li>
                     <li class="li-opc">
                         <a href="/chatNotification"><img class="header-icon" src="/icons/icon-notificacion.png" alt=""></a>

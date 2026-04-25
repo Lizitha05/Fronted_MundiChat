@@ -7,9 +7,7 @@ const io = new Server(3000, {
 })
 
 io.on('connection', socket =>{
-    console.log("Usuario conectado")
-    socket.emit('chat-message', 'Hello world')
-    socket.on('send-chat-message',message=>{
-        console.log(message)
+    socket.on('send-chat-message', message=>{
+        socket.broadcast.emit('chat-message', message)
     })
 })

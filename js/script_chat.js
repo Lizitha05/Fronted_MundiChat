@@ -1,9 +1,10 @@
 const socket = io('http://localhost:3000')
+const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
 const messageInput = document.getElementById('message-input')
 
 socket.on('chat-message', data=>{
-    console.log("Mensaje recibido:",data)
+    AppendMessage(data)
 })
 
 messageForm.addEventListener('submit', e =>{
@@ -12,3 +13,9 @@ messageForm.addEventListener('submit', e =>{
     socket.emit('send-chat-message', message)
     messageInput.value = ''
 })
+
+function AppendMessage(message){
+    const messageElement = document.createElement('div')
+    messageElement.innerText = message
+    messageContainer.append(messageElement)
+}
