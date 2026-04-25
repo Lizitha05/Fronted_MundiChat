@@ -1,0 +1,5 @@
+//*Para los socket es :
+npm run devStart
+
+//*Para la pagina es :
+php -S localhost:1080
