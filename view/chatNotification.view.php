@@ -11,7 +11,7 @@
 
 <body>
 
-    <div id="header-login"></div>
+    <?php require 'controller/header-login.php'; ?>
 
     <div class="notification-section">
 

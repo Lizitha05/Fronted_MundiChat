@@ -10,9 +10,10 @@
 </head>
 <script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script defer src="/js/script_chat.js"></script>
+
 <body>
 
-   <?php require 'controller/header-login.php'; ?>
+    <?php require 'controller/header-login.php'; ?>
 
 
     <div class="chatConteiner">
@@ -20,7 +21,7 @@
 
             <div class="conteinerChats">
                 <div class="chatUser">
-                    <img src="/Image/perfil1.png" alt="">
+                    <img src="/Image/perfil1.png" alt="" class="listPhoto">
                     <div class="content">
                         <label class="lChat" for="">Karen Abigail Guerra Lozano</label>
 
@@ -29,7 +30,7 @@
                 </div>
 
                 <div class="chatUser">
-                    <img src="/Image/perfil1.png" alt="">
+                    <img src="/Image/perfil1.png" alt="" class="listPhoto">
                     <div class="content">
                         <label class="lChat" for="">Karen Abigail Guerra Lozano</label>
 
@@ -38,7 +39,7 @@
                 </div>
 
                 <div class="chatUser">
-                    <img src="/Image/perfil1.png" alt="">
+                    <img src="/Image/perfil1.png" alt="" class="listPhoto">
                     <div class="content">
                         <label class="lChat" for="">Karen Abigail Guerra Lozano</label>
 
@@ -49,21 +50,25 @@
         </div>
 
         <div class="wrapperSecond">
-
+            <div class="headerChat">
+                <img src="/Image/perfil1.png" alt="" class="profileChat">
+                <input class="iUser" type="text" value="Karen Abigail Guerra Lozano">
+            </div>
+            
             <div class="message">
 
                 <div id="message-container"></div>
                 <div class="sendMessage">
                     <form id="send-container">
                         <label class="iDoc">
-                        <input type="file" class="hiddenFile">
+                            <input type="file" class="hiddenFile">
                         </label>
 
                         <input class="imessage" type="text" id="message-input">
 
                         <button class="btnSend" id="send-button"><img class="imgSend" src="/icons/icon-enviar.png" alt=""></button>
                     </form>
-              
+
                 </div>
 
             </div>

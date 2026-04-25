@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id="header-login"></div>
+    <?php require 'controller/header-login.php'; ?>
 
     <div class="img-top-hd">
         <img class="img-barraCOD" src="/Image/mty2.png" alt="">
