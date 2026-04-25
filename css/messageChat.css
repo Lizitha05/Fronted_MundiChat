@@ -78,7 +78,7 @@ body {
    
     width: 600px;
     height: 800px;
-    background-color: var(--color-200);
+    background-color: var(--color-500);
     overflow-y: auto;
     
 }
@@ -117,27 +117,33 @@ padding: 10px;
     height: 40px;
     background-color: transparent;
     border-radius: 15px;
+    font-weight: bold;
     padding: 15px;
     border: none;
     outline: none;
 
     font-family: var(--letra-200);
-    font-size: 18px;
+    font-size: 15px;
     color: var(--color-100)
 }
 
 .iChat{
     width: 309px;
     height: 40px;
-    background-color: var(--color-100);
+    background-color: #5a6ae4;
     border-radius: 15px;
     padding: 15px;
     border: none;
     outline: none;
 
     font-family: var(--letra-200);
-    font-size: 18px;
+    font-size: 15px;
     color: var(--color-400)
+}
+
+.listPhoto{
+width: 80px;
+height: 78px;
 }
 
 img{
@@ -164,9 +170,9 @@ img{
     display: flex;
     align-items: center;
     justify-content:left ;
-    padding: 30px;
+    padding: 34px;
     width: 980px;
-    height: 124px;
+    height: 60px;
     gap: 20px;
 
     background-color: var(--color-400);
@@ -178,9 +184,15 @@ img{
     border: none;
     background-color: transparent;
     font-family: var(--letra-200);
-    font-size: 32px;
+    font-size: 15px;
+    font-weight: bold;
     color: var(--color-100);
     width: 462px;
+}
+
+.profileChat{
+    width: 50px;
+    height: 50px;
 }
 
 
@@ -260,8 +272,8 @@ img{
     justify-content: center;
     align-items: center;
     background-color: var(--color-100);
-    width: 770px;
-    height: 60px;
+    width: 800px;
+    height: 40px;
     border-radius: 80px;
 }
 
@@ -272,16 +284,19 @@ img{
 }
 
 .iDoc {
+  
   background-image: url(/icons/icon-compartir.png);
   background-size: cover;
   width: 40px;
-  height: 40px;
+  height: 30px;
   display: inline-block;
   cursor: pointer;
+  
 }
 
 .hiddenFile {
   display: none;
+  
 }
 
 
@@ -295,7 +310,7 @@ img{
 
     font-family: var(--letra-200);
     color: var(--color-400);
-    font-size: 20px;
+    font-size: 15px;
 
     padding: 20px;
 }
