@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundiChat - Chat Notifications</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/chadNotification.css">
+</head>
+
+<body>
+
+    <div id="header-login"></div>
+
+    <div class="notification-section">
+
+        <div class="notification">
+
+            <div class="colorNotification">
+                <div class="notification-title-time">
+                    <p class="content-title">¡HOLA PESCADO!</p>
+                    <p class="content-time">30 min</p>
+
+                </div>
+                <div class="notfication-content-notifcation">
+
+                    <p class="content-notification">"zuazeño" ha aceptado la invitación</p>
+                </div>
+
+            </div>
+
+
+        <button id="btn-delNot"> <img class="img-notification-trash" src="/icons/icon-borrar.png" alt=""></button>
+
+        </div>
+        
+        
+        <div class="notification">
+
+            <div class="colorNotification">
+                <div class="notification-title-time">
+                    <p class="content-title">¡HOLA PESCADO!</p>
+                    <p class="content-time">30 min</p>
+
+                </div>
+                <div class="notfication-content-notifcation">
+
+                    <p class="content-notification">"zuazeño" ha aceptado la invitación</p>
+                </div>
+
+            </div>
+
+              <button id="btn-delNot"> <img class="img-notification-trash" src="/icons/icon-borrar.png" alt=""></button>
+            
+           
+
+        </div>
+        
+    </div>
+
+</body>
+
+<script src="/js/partial.js"></script>
+<script src="/js/chatNotifcation.js"></script>
+
+</html>
