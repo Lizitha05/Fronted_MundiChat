@@ -23,12 +23,12 @@
             <!-- Título de la página -->
             <div class="wrapper-opc">
 
-                <a id="subtitulo" href="/Html/index.html">INICIO</a>
+                <a id="subtitulo" href="/PW2_Proyect/index">INICIO</a>
             </div>
 
             <!-- Botón ingresar -->
             <div class="wrapper-btn">
-                <a href="/Html/login.html" class="btn-login">REGRESAR</a>
+                <a href="/PW2_Proyect/login" class="btn-login">REGRESAR</a>
             </div>
 
 
@@ -90,7 +90,7 @@
                     <input class="iReg" type="password">
 
                      <div class="iReg">
-                        <button class="btn-reg"><a href="/Html/profile.html">Registro</a></button>
+                        <button class="btn-reg"><a href="/PW2_Proyect/profile">Registro</a></button>
                     </div>
                 </div>
 

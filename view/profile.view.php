@@ -36,8 +36,8 @@
 
 
                 <div class="flexBtn">
-                    <button class="btn-Prof"><a class="link" href="/Html/events.html">Mis eventos</a></button>
-                    <button class="btn-Prof"><a class="link" href="/Html/coupon.html">Mis cupones</a></button>
+                    <button class="btn-Prof"><a class="link" href="/PW2_Proyect/events">Mis eventos</a></button>
+                    <button class="btn-Prof"><a class="link" href="/PW2_Proyect/coupon">Mis cupones</a></button>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
         </div>
 
         <div class="wrapperTooltip">
-            <a href="/Html/editProfile.html"> <img class="imgEdit" src="/icons/icon-editProfile.png" alt="Editar"></a>
+            <a href="/PW2_Proyect/editProfile"> <img class="imgEdit" src="/icons/icon-editProfile.png" alt="Editar"></a>
               
              <span class="tooltiptext">Editar perfil</span>
             

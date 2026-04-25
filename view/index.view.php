@@ -33,7 +33,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/Html/place.html" class="btn-places">Mas informacion</a>
+                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -53,7 +53,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/Html/place.html" class="btn-places">Mas informacion</a>
+                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -73,7 +73,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/Html/place.html" class="btn-places">Mas informacion</a>
+                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -99,7 +99,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/Html/place.html" class="btn-places">Mas informacion</a>
+                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -119,7 +119,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/Html/place.html" class="btn-places">Mas informacion</a>
+                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -139,7 +139,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/Html/place.html" class="btn-places">Mas informacion</a>
+                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">

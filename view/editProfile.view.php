@@ -36,7 +36,7 @@
         </form>
 
         <div class="flexBtn">
-                    <button class="btn-EditProf"><a class="link" href="/Html/profile.html">REGRESAR</a></button>
+                    <button class="btn-EditProf"><a class="link" href="/PW2_Proyect/profile">REGRESAR</a></button>
                     <button class="btn-EditProf">GUARDAR</button>
         </div>
 

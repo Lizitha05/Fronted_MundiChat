@@ -24,7 +24,7 @@
 
 
             <div class="wrapper-btn">
-                <a href="/Html/index.html" class="btn-login">Inicio</a>
+                <a href="/PW2_Proyect/index" class="btn-login">Inicio</a>
             </div>
 
 
@@ -43,10 +43,10 @@
             <label class="lLogin" for="">Contraseña</label>
             <input  class="iLogin" type="password">
     
-            <p class="txtReg" >¿Aun no tienes cuenta?Da click <a href="/Html/register.html">Registrate</a> </p>
+            <p class="txtReg" >¿Aun no tienes cuenta?Da click <a href="/PW2_Proyect/register">Registrate</a> </p>
 
             <div class="wrapperBtn">
-                <a href="/Html/index.html" class="btn-reg">INGRESAR</a>
+                <a href="/PW2_Proyect/index" class="btn-reg">INGRESAR</a>
             </div>
             
         </div>
