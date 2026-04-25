@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <div id="header-login"></div>
+     
+    <?php require 'controller/header-login.php'; ?>
 
     <div class="event-section">
         <div class="section-event1">
@@ -117,6 +118,6 @@
 
 </body>
 
-<script src="/js/partial.js"></script>
-
+<!-- <script src="/js/partial.js"></script>
+ -->
 </html>

@@ -6,7 +6,7 @@ return [
     'db' => [
         'conexion_Mundiales' => [
             'host' => 'localhost',
-            'dbname' => 'nlgo',
+            'dbname' => 'mundichat',
             'username' => 'root',
             'password' => 'Noe_050703',
             'charset' => 'utf8mb4',   //Es para los caracteres especiales
@@ -17,7 +17,7 @@ return [
      'db1' => [
         'conexion_Mundiales' => [
             'host' => 'localhost',
-            'dbname' => 'pw2_db_main',
+            'dbname' => 'mundichat',
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8mb4',   //Es para los caracteres especiales
@@ -27,7 +27,7 @@ return [
    'db2' => [
         'conexion_Mundiales' => [
             'host' => 'localhost',
-            'dbname' => 'pw2_db_main',
+            'dbname' => 'mundichat',
             'username' => 'root',
             'password' => 'root',
             'charset' => 'utf8mb4',   //Es para los caracteres especiales

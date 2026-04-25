@@ -9,7 +9,19 @@
 </head>
 
 <body>
-    <div id="header"></div>
+
+    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+
+        <?php require 'controller/header-login.php'; ?>
+
+    <?php else: ?>
+
+        <?php require 'controller/header.php'; ?>
+
+    <?php endif; ?>
+
+
+
 
     <div class="wrapper-NL">
         <img class="img-nl" src="/Image/nl_portada.png" alt="">
@@ -33,7 +45,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
+                        <a href="/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -53,7 +65,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
+                        <a href="/ /place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -73,7 +85,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
+                        <a href="/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -99,7 +111,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
+                        <a href="/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -119,7 +131,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
+                        <a href="/place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -139,7 +151,7 @@
                     <h5 class="card-title">PASEO SANTA LUCIA</h5>
 
                     <div class="wrapper-places">
-                        <a href="/PW2_Proyect/place" class="btn-places">Mas informacion</a>
+                        <a href="/ /place" class="btn-places">Mas informacion</a>
 
 
                         <img class="icon-flecha" src="/icons/icon-flecha.png" alt="">
@@ -158,6 +170,7 @@
 
 </body>
 
-<script src="/js/partial.js"></script>
+<!-- <script src="/js/partial.js"></script>
+ -->
 
 </html>

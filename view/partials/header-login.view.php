@@ -21,29 +21,29 @@
         <nav class="navbar">
 
             <div class="wrapper-logo">
-                <a class="link" href="/PW2_Proyect/index" id="titulo">MundiChat</a>
+                <a class="link" href="/" id="titulo">MundiChat</a>
             </div>
 
            
             <div class="wrapper-opcLogin">
                 <ul class="ul-list">
                     <li class="li-opc">
-                        <a href="/PW2_Proyect/coupon"><img class="header-icon" src="/icons/icon-cupones.png" alt=""></a>
+                        <a href="/coupon"><img class="header-icon" src="/icons/icon-cupones.png" alt=""></a>
                     </li>
                     <li class="li-opc">
-                        <a href="/PW2_Proyect/events"><img class="header-icon" src="/icons/icon-eventos.png" alt=""></a>
+                        <a href="/events"><img class="header-icon" src="/icons/icon-eventos.png" alt=""></a>
                     </li>
                     <li class="li-opc">
-                        <a href="/PW2_Proyect/place"><img class="header-icon" src="/icons/icon-lugares.png" alt=""></a>
+                        <a href="/place"><img class="header-icon" src="/icons/icon-lugares.png" alt=""></a>
                     </li>
                     <li class="li-opc">
-                        <a href="/PW2_Proyect/chatAdd"><img class="header-icon" src="/icons/icon-agregar.png" alt=""></a>
+                        <a href="/chatAdd"><img class="header-icon" src="/icons/icon-agregar.png" alt=""></a>
                     </li>
                     <li class="li-opc">
-                        <a href="/PW2_Proyect/messageChat"><img class="header-icon" src="/icons/icon-mensaje.png" alt=""></a>
+                        <a href="/messageChat"><img class="header-icon" src="/icons/icon-mensaje.png" alt=""></a>
                     </li>
                     <li class="li-opc">
-                        <a href="/PW2_Proyect/chatNotification"><img class="header-icon" src="/icons/icon-notificacion.png" alt=""></a>
+                        <a href="/chatNotification"><img class="header-icon" src="/icons/icon-notificacion.png" alt=""></a>
                     </li>
             
             
@@ -54,7 +54,7 @@
         
             <div class="wrapper-perfil">
               
-              <a href="/PW2_Proyect/profile"><img  class="img-perfil"  src="/Image/perfil.png" alt=""></a>
+              <a href="/profile"><img  class="img-perfil"  src="/Image/perfil.png" alt=""></a>
             </div>
 
 

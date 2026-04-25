@@ -24,12 +24,12 @@
             <!-- Título de la página -->
             <div class="wrapper-opc">
                 
-                <a id="subtitulo" href="/PW2_Proyect/place">LUGARES</a>
+                <a id="subtitulo" href="/place">LUGARES</a>
             </div>
 
             <!-- Botón ingresar -->
             <div class="wrapper-btn">
-                <a href="/PW2_Proyect/login" class="btn-login">Ingresar</a>
+                <a href="/login" class="btn-login">Ingresar</a>
             </div>
 
 

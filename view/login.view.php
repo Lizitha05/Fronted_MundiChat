@@ -24,34 +24,41 @@
 
 
             <div class="wrapper-btn">
-                <a href="/PW2_Proyect/index" class="btn-login">Inicio</a>
+                <a href="/" class="btn-login">Inicio</a>
             </div>
 
 
         </nav>
     </header>
 
-    <div class="wrapperLogin">
+    <form class="wrapperLogin" action="/login-process" method="POST">
     
         <div class="bodyLogin">
     
             <h1  class="tLogin">INICIAR SESION</h1>
     
             <label class="lLogin">Correo electronico</label>
-            <input class="iLogin" type="text">
+            <input class="iLogin" type="text" name="iCorreoUser">
     
             <label class="lLogin" for="">Contraseña</label>
-            <input  class="iLogin" type="password">
+            <input  class="iLogin" type="password" name="iContraUser">
     
-            <p class="txtReg" >¿Aun no tienes cuenta?Da click <a href="/PW2_Proyect/register">Registrate</a> </p>
+            <!-- Mostrar errores si existen -->
+                    <?php if (isset($error) && !empty($error)): ?>
+                        <div id="passwordHelpBlock" class="form-text" style="font-size:14px;   color:--color-300 ; text-align:center ;font-weight: bold;font-family: var(--font-Monserrat);">
+                            <?php echo $error; ?>
+                        </div>
+                    <?php endif; ?>
+
+            <p class="txtReg" >¿Aun no tienes cuenta?Da click <a href="/register">Registrate</a> </p>
 
             <div class="wrapperBtn">
-                <a href="/PW2_Proyect/index" class="btn-reg">INGRESAR</a>
+                <button href="" class="btn-reg" type="submit">INGRESAR</button>
             </div>
             
         </div>
     
-    </div>
+    </form>
 
 
 </body>
