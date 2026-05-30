@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundiChat - Register</title>
+   
+       <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/register.css">
+</head>
+
+<body>
+    <header>
+      <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="titulo navbar-brand " href="/">
+                    MundiChat
+                </a>
+
+                <a class="subtitulo navbar-brand " href="/place" >
+                    Lugares
+                </a>
+                <a class="subtitulo navbar-brand " href="/login">
+                    <button type="button" class="btn ">Iniciar sesion</button>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <div class="wrapperReg">
+
+        <div class="bodyReg">
+
+            <div class="perfilReg">
+
+                <input type="file" id="fileOpeneReg" style="display:none" accept="image/*">
+
+
+                <img id="preview" class="imgReg" src="/Image/perfil.png" alt="" onclick="document.getElementById('fileOpeneReg').click()">
+            
+              
+            </div>
+
+
+            <div class="gridReg">
+                <div class="flexReg">
+                    <h1 class="tReg">Registro</h1>
+                </div>
+
+                <div class="flexReg">
+                    <label class="lReg">Correo electronico</label>
+
+                    <label class="lReg" for="">nickname</label>
+
+                </div>
+
+                <div class="flexReg">
+                    <input class="iReg" type="text">
+                    <input class="iReg" type="text">
+                </div>
+
+                <div class="flexReg">
+                    <label class="lReg">Nombre completo</label>
+
+
+                    <label class="lReg" for="">Fecha de nacimiento</label>
+
+                </div>
+
+                <div class="flexReg">
+                    <input class="iReg" type="text">
+                    <input class="iReg" type="date">
+                </div>
+
+                <div class="flexReg">
+                    <label class="lReg">Contraseña</label>
+
+                </div>
+
+                <div class="flexReg">
+                    <input class="iReg" type="password">
+
+                     <div class="iReg">
+                        <button class="btn-reg"><a href="/Html/profile.html">Registro</a></button>
+                    </div>
+                </div>
+
+
+               
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+   
+</body>
+
+<script src="/js/register.js"></script>
+
+</html>
