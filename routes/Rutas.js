@@ -28,7 +28,8 @@ resp --> Respuesta del server
 //Ruta raiz
 router.get('/' , 
     (req,res)=>{
-     res.sendFile(path.join(__dirname, '..', 'index.html'));   
+         res.sendFile('index.html', {  root: path.join(__dirname, '..')  })
+
     }
 )
 
