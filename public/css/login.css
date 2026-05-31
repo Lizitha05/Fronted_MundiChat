@@ -61,111 +61,70 @@ body{
 background-image: url("/Image/fondo-icon.png");
 
 background-position: center;
-
+background-repeat: repeat;
+background-size: 40%;
 overflow: hidden;
-
-}
-
-.wrapperLogin{
-    
-display: flex;
-justify-content: center;
-align-items: center;
-
-
+background-color: var(--color-400);
 }
 
 
-.bodyLogin {
+.login-card{
+    background-color: var(--color-500);
+    padding: 5% 8% 5% 8%;
+    border-radius: 10%;
+    box-shadow:3px 3px 10px var(--color-600);
+}
+
+.login-title{
+    font-family: var(--letra-400);
+    text-align: center;
+    color: var(--color-100);
+    font-size: 5vh;
+}
 
 
-    width: 700px;
-    height: 570px;
-    box-shadow: 0px 7px 6px rgb(29, 41, 132,0.5);
-    background-color: var(--color-200);
-    border-radius: 50px;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-
+.text-center{
    
-    
 }
-.tLogin{
 
+.btn-class{
+    border-radius: 10%;
+}
+
+.login-label{
     font-family: var(--letra-400);
-    font-size: 80px;
     color: var(--color-100);
-    text-align: center;
-    padding-top: 57px;
+    font-size: 3vh;
 }
 
-
-.lLogin{
-    font-family: var(--letra-400);
-    font-size: 35px;
-    color: var(--color-100);
-    text-align: center;
-    padding: 4px 0px 4px 0px;
-}
-
-
-.iLogin{
+.login-input{
+    font-family: var(--letra-200);
+    color: var(--color-400);
     background-color: var(--color-100);
-    border: none;
-    border-radius:25px; 
-    width: 400px;
-    height: 60px;
-    margin: 0 auto;
-    font-family: var(--letra-200);
-    font-size: 25px;
-    color: var(--color-400);
-    text-align: center;
-
-     outline: 5px #AFC5F4;
-
 }
 
-
-
-.txtReg{
+.register-text{
     font-family: var(--letra-200);
     color: var(--color-400);
-    font-weight:500;
-    font-size: 20px;
-    padding-top: 20px;
+    font-weight: bold;
+   
 }
 
-
-
-
-.wrapperBtn{
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 20px;
+.register-link{
+    font-family: var(--letra-200);
+    text-decoration: none;
+    color: var(--color-100);
+    font-weight: bold;
 }
 
-
-.btn-reg{
+.login-btn{
 
     font-family: var(--letra-400);
-    font-size: 40px;
-    font-weight: 100;
-    color:var(--color-100);
-    background-color: #FAFAF1;
-    
-    width: 214px;
-    height: 60px;
-    border-radius: 50px;
-    border: none;
-    
-
-}
-
-#linkReg{
-text-decoration: none;
-    font-weight: bolder;
+    text-align: center;
+    text-decoration: none;
     color: var(--color-100);
+    background-color: var(--color-400);
+    border-radius: 10px;
+     padding: 2% 5% 2% 5%;
+    font-size: 2.5vh;
 }

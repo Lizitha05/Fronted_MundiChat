@@ -30,28 +30,40 @@
         </nav>
     </header>
 
-    <div class="wrapperLogin">
-    
-        <div class="bodyLogin">
-    
-            <h1  class="tLogin">INICIAR SESION</h1>
-    
-            <label class="lLogin">Correo electronico</label>
-            <input class="iLogin" type="text">
-    
-            <label class="lLogin" for="">Contraseña</label>
-            <input  class="iLogin" type="password">
-    
-            <p class="txtReg" >¿Aun no tienes cuenta?Da click <a href="/register" id="linkReg">Registrate</a> </p>
-
-            <div class="wrapperBtn">
-                <a href="/Html/index.html" class="btn-reg" >INGRESAR</a>
-            </div>
+     <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-card">
             
-        </div>
-    
-    </div>
+            <!-- Título -->
+            <h1 class="login-title mb-4">INICIAR SESION</h1>
+            
+            <!-- Formulario -->
+            <form class="text-center ">
+                
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="login-label">Correo electronico</label>
+                    <input type="email" class="form-control login-input" placeholder="">
+                </div>
 
+                <!-- Contraseña -->
+                <div class="mb-3">
+                    <label class="login-label">Contraseña</label>
+                    <input type="password" class="form-control login-input" placeholder="">
+                </div>
+
+                <!-- Texto registro -->
+                <p class="register-text">
+                    ¿Aun no tienes cuenta? Da click <a href="/register" class="register-link">Registrate</a>
+                </p>
+
+                <!-- Botón -->
+                <div class="mt-4 ">
+                    <a href="/index" class="login-btn">INGRESAR</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
 
 </body>
 
