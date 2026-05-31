@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MundiChat - login</title>
+    <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="titulo navbar-brand " href="/">
+                    MundiChat
+                </a>
+
+                <a class="subtitulo navbar-brand " href="/place">
+                    Lugares
+                </a>
+                <a class="subtitulo navbar-brand " href="/">
+                    <button type="button" class="btn ">Regresar</button>
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+     <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-card">
+            
+            <!-- Título -->
+            <h1 class="login-title mb-4">INICIAR SESION</h1>
+            
+            <!-- Formulario -->
+            <form class="text-center ">
+                
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="login-label">Correo electronico</label>
+                    <input type="email" class="form-control login-input" placeholder="">
+                </div>
+
+                <!-- Contraseña -->
+                <div class="mb-3">
+                    <label class="login-label">Contraseña</label>
+                    <input type="password" class="form-control login-input" placeholder="">
+                </div>
+
+                <!-- Texto registro -->
+                <p class="register-text">
+                    ¿Aun no tienes cuenta? Da click <a href="/register" class="register-link">Registrate</a>
+                </p>
+
+                <!-- Botón -->
+                <div class="mt-4 ">
+                    <a href="/index" class="login-btn">INGRESAR</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+:root {
+
+    --color-100: #1D2984;
+    --color-200: #B2EB14;
+    --color-300: #504AF4;
+    --color-400: #FAFAF1;
+    --color-500: #AFC5F4;
+    --color-600: #000000;
+    --letra-100: 'agains_modern_football', agains_modern_football;
+    --letra-200: 'Monserrat', Monserrat;
+    --letra-300: 'PRIMETIME', PRIMETIME;
+    --letra-400: 'Staatliches-Regular', Staatliches-Regular;
+}
+
+@font-face {
+    font-family: "agains_modern_football";
+    src: url(/fonts/against_modern_football.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Staatliches-Regular";
+    src: url(/fonts/Staatliches-Regular.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "Monserrat";
+    src: url(/fonts/Monserrat.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "PRIMETIME";
+    src: url(/fonts/PRIMETIME.ttf)format("truetype")
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.navbar{
+    background-color:var(--color-400) !important;
+    box-shadow: 4px 0px 20px var(--color-600);
+}
+
+.titulo{
+    font-family: var(--letra-400);
+    color: var(--color-100);
+    font-size: 25px;
+}
+
+.subtitulo{
+    font-family: var(--letra-400);
+    color: var(--color-100);
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.btn{
+    
+    background-color:var(--color-500) ;
+    color: var(--color-100);
+    font-size: 25px;
+    
+}
+
+#imgProfile{
+    border-radius: 50% ;
+    border: 4px solid #B2EB14;
+}
+
+.icono{
+    color: #1D2984;
+    height: 40px;
+}
+
+.icono a {
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.icono a:hover {
+    transform: rotate(10deg) scale(1.2);
+}
