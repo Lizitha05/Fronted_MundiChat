@@ -26,12 +26,9 @@ resp --> Respuesta del server
  */
 
 //Ruta raiz
-router.get('/' , 
-    (req,res)=>{
-         res.sendFile('index.html', {  root: path.join(__dirname, '..')  })
-
-    }
-)
+router.get('/', (req, res) => {
+    res.sendFile('Html/index.html', { root: './public' })
+})
 
 // ruta Universal, aqui para cuando pongas "localhost:(puerto)" aparezca el .html que le pongas aqui
 
