@@ -106,8 +106,9 @@ background-color: var(--color-400);
 .register-text{
     font-family: var(--letra-200);
     color: var(--color-400);
+
     font-weight: bold;
-   
+    
 }
 
 .register-link{
@@ -115,6 +116,7 @@ background-color: var(--color-400);
     text-decoration: none;
     color: var(--color-100);
     font-weight: bold;
+    
 }
 
 .login-btn{
@@ -124,7 +126,8 @@ background-color: var(--color-400);
     text-decoration: none;
     color: var(--color-100);
     background-color: var(--color-400);
+    border: none;
     border-radius: 10px;
-     padding: 2% 5% 2% 5%;
+    padding: 2% 5% 2% 5%;
     font-size: 2.5vh;
 }
