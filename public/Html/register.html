@@ -7,8 +7,10 @@
     <title>MundiChat - Register</title>
 
     <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons-1.13.1/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/alerts.css">
 </head>
 
 <body>
@@ -31,40 +33,40 @@
     </header>
 
 
-    <div class="wrapperReg">
+    <div class="register-card d-flex justify-content-center align-items-center min-vh-100">
 
-        <div class="bodyReg">
+        <form class="regForm d-flex "  id="formRegister">
 
-            <div class="perfilReg">
+            <div class="m-4 ">
 
-                <input type="file" id="fileOpeneReg" style="display:none" accept="image/*">
+                <label for="idFoto" class="form-label"></label>
+                <input type="file" id="fileOpeneReg" style="display:none" accept="image/*" name="fileOpeneReg">
 
-
-                <img id="preview" class="imgReg" src="/Image/perfil.png" alt=""
+                <img id="preview" class="imgReg rounded-circle" src="/Image/default.jfif" alt=""
                     onclick="document.getElementById('fileOpeneReg').click()">
 
 
             </div>
 
 
-            <div class="gridReg">
-                <div class="flexReg">
-                    <h1 class="tReg">Registro</h1>
+            <div class="d-grid">
+                <div class="">
+                    <h1 class="register-text mb-1">Registro</h1>
                 </div>
 
-                <div class="flexReg">
+                <div class="d-flex gap-5">
                     <label class="lReg">Correo electronico</label>
 
                     <label class="lReg" for="">nickname</label>
 
                 </div>
 
-                <div class="flexReg">
-                    <input class="iReg" type="text">
-                    <input class="iReg" type="text">
+                <div class="d-flex gap-5 ">
+                    <input class="iReg form-control" type="text" name="mail" id="idMail">
+                    <input class="iReg form-control" type="text" name="nickname" id="idNickname">
                 </div>
 
-                <div class="flexReg">
+                <div class="d-flex gap-5 ">
                     <label class="lReg">Nombre completo</label>
 
 
@@ -72,22 +74,26 @@
 
                 </div>
 
-                <div class="flexReg">
-                    <input class="iReg" type="text">
-                    <input class="iReg" type="date">
+                <div class="d-flex gap-5 ">
+                    <input class="iReg form-control" type="text" name="nombre" id="idNombre">
+                    <input class="iReg form-control" type="date" name="date" id="idDate">
                 </div>
 
-                <div class="flexReg">
+                <div class="d-flex gap-5 ">
                     <label class="lReg">Contraseña</label>
 
                 </div>
 
-                <div class="flexReg">
-                    <input class="iReg" type="password">
+                <div class="d-flex gap-5 ">
 
-                    <div class="iReg">
-                        <button class="btn-reg"><a href="/Html/profile.html">Registro</a></button>
+                    <div class="d-flex gap-4">
+                    
+                        <input class="iReg form-control" type="password" name="password" id="idPassword" autocomplete="new-password">
+                        <span class="mostrar-btn" id="togglePassword" style="cursor: pointer;"><i class="bi bi-eye-fill"
+                                id="eyeIcon"></i></span>
+                    
                     </div>
+                   <button class="btn-reg" type="submit">Registro</button>
                 </div>
 
 
@@ -95,7 +101,7 @@
             </div>
 
 
-        </div>
+        </form>
 
 
     </div>
@@ -104,5 +110,6 @@
 </body>
 
 <script src="/js/register.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>
