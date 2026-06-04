@@ -89,7 +89,9 @@ background-color: var(--color-400);
 }
 
 .letra{
-     font-family: var(--letra-200);
+     font-family: var(--letra-400);
+     color:var(--color-300);
+     font-weight: lighter;
 }    
 
 .link{
@@ -126,6 +128,14 @@ background-color: var(--color-400);
     border-radius: 10px;
 }
 
+
 #cumple{
     margin-left: 30px;
+}
+
+.cerrarSesion{
+    font-family: var(--letra-400);
+    color: var(--color-400);
+    background-color: var(--color-100);
+    border-radius: 10px;
 }

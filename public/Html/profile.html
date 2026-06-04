@@ -29,22 +29,31 @@
 
             </div>
             
-            <div class="info text-center mt-2">
-
-            <p class="fs-6" id="nombreCompleto">Nombre</p>
-            <p class="fs-6" id="correoElectronico">correo</p>
-            <p class="letra fs-6" id="apodo">apodo</p>
-
+          
+                <div class="info d-flex justify-content-center align-items-center mt-4">
             
-
-            </div>
-           
+                    <label class="letra fs-6 mb-1">Nombre : </label>
+                    <p class="fs-6 mb-1" id="nombreCompleto">Nombre</p>
             
-            <button class="btn-general mb-2 p-2 "><a class="link2" href="/events" ><i class="bi bi-pen-fill m-4"></i>Editar perfil</a></button>
+                </div>
+                <div class="info d-flex justify-content-center align-items-center">
+                    <label class="letra fs-6 mb-1">Correo :</label>
+                    <p class="fs-6 mb-1" id="correoElectronico">correo</p>
+            
+                </div>
+            
+                <div class="info d-flex justify-content-center align-items-center">
+                    <label class="letra fs-6 mb-1">Apodo :</label>
+                    <p class="fs-6 mb-1" id="apodo">apodo</p>
+                </div>
+            
+ 
+            
+            <button class="btn-general mb-2 p-2 "><a class="link2" href="/editProfile" ><i class="bi bi-pen-fill m-4"></i>Editar perfil</a></button>
 
             <button class="btn-general mb-2 p-2"><i class="link2 bi bi-cake2-fill m-4"><label for="" id="cumple"></label></i></button>
 
-            <button class="btn-general mb-2 p-2"><a class="link2" href="/coupon">cerrar sesion</a></button>
+            <button class="cerrarSesion mb-2 p-2" id="logout" onclick="cerrarSesion(event)" type="button">cerrar sesion</button>
 
                 <div class="d-flex justify-content-center align-items-center gap-4">
                     <button class="btn-Prof"><a class="link" href="/events">Mis eventos</a></button>
@@ -59,6 +68,7 @@
 
 
 </body>
+
 
 <script src="/js/partial.js"></script>
 <script src="/js/profile.js"></script>
