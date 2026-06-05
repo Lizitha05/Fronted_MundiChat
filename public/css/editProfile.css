@@ -56,121 +56,58 @@
     box-sizing: border-box;
 }
 
-body {
 
-    
-    background-image: url("/Image/fondo-icon.png");
+body{
 
-    background-position: center;
+background-image: url("/Image/fondo-icon.png");
 
+background-position: center;
+background-repeat: repeat;
+background-size: 40%;
+overflow: hidden;
+background-color: var(--color-400);
 }
 
-.link {
-    text-decoration: none;
-    color: white;
+.formProfile{
+    background-color: var(--color-500);
+    padding: 2% 3% 2% 3%;
+    border-radius:50px;
+    box-shadow:3px 3px 10px var(--color-600);
 }
-
-label{
+.profile-text
+{
     font-family: var(--letra-400);
-    font-size: 40px;
-    text-align: center;
-    margin: 5px;
+    color: var(--color-100);
 }
 
-input{
-    background-color: #B2EB14;
-    border-radius: 20px;
-    padding: 15px 10px;
-
-    width: 540px;
-    height: 56px;
-    border: none;
-    outline: none;
- 
-    font-size: 30px;
-    
+.imgProf{
+    border: 4px solid var(--color-100);
 }
 
-.Change-prof-title{
-    font-family: var(--letra-400);
-    color: #1D2984;
-    font-size: 70px
-}
 
-.edit-profile-section{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+.letra{
+     font-family: var(--letra-400);
+     color:var(--color-300);
+     font-weight: lighter;
+}    
 
-.photo-change-profile{
-    display: flex;
-    flex-direction: column;
-}
-
-.imgProfChange{
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    border: 10px solid #B2EB14;
-    margin: 30px;
-}
-
-.btn-PhotoProf{
-     width: 250px;
-    height: 98px;
-    font-family: var(--letra-400);
-    font-size: 40px;
-    background-color: var(--color-200);
-    border: none;
-    border-radius: 100px;
-    align-self: center;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.btn-EditProf {
-    width: 250px;
-    height: 98px;
-    font-family: var(--letra-400);
-    font-size: 40px;
-    background-color: var(--color-100);
-    color:white;
-    border: none;
-    border-radius: 100px;
-    align-self: center;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.flexBtn{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.edit-profile-section{
-    background-color: white;
-    box-shadow: 1px 1px 10px #424141;
-    border-radius: 20px;
-    padding-top: 30px;
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-left: 400px;
-    margin-right: 400px;
-
-}
-
-.fill-chage-profile{
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.iEdit{
-
+#floatingInputDisabled{
     font-family: var(--letra-200);
-    font-size: 20px;
+    color: var(--color-600);
 }
+.btn-guardar{
+    font-family: var(--letra-400);
+    text-align: center;
+    color: var(--color-100);
+    text-decoration: none;
+    background-color: var(--color-400);
+    border: none;
+    border-radius: 10px;
+    padding: 2% 5% 2% 5%;
+    font-size: 2.5vh;
+    width: 80%;
+    height: 80%;
+}
+
+
+

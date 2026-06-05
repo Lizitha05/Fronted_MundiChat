@@ -5,6 +5,22 @@ const multer = require('multer');
 const path = require('path');
 const app = express();
 
+//*Es importante es el socket
+const { Server } = require("socket.io")
+
+const io = new Server(3000, {
+  cors: {
+    origin: "*"
+  }
+})
+
+io.on('connection', socket =>{
+    socket.on('send-chat-message', data=>{
+        socket.broadcast.emit('chat-message', data)
+    })
+})
+
+
 const PagesRoutes = require('./routes/Rutas.js'); //Variable que guarda la direccion de mis rutas
 
 const PORT = 3001;
@@ -97,7 +113,17 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
   const { mail, nickname, nombre, date, password } = req.body;  //Estos son los name de los input
   const imagen = req.file.buffer.toString('base64');
 
- 
+  const max_sixe_bytes = 5*1024*1024;
+  const max_base64_length = 4* Math.ceil(max_sixe_bytes/3);
+
+  if(imagen.lenght > max_base64_length){
+
+    return res.status(400).json({
+   
+      msg: 'La imagen excede el tamaño máximo permitido (5MB)';
+      
+    });
+   }
   // Validar que los campos no estén vacíos
   if (!mail || !nickname || !nombre || !date || !password ) {
     return res.status(400).json({ msg: 'Todos los campos son obligatorios' });
@@ -134,7 +160,7 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
   // Validar contraseña
   const checkContra = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/;
   if (!checkContra.test(password)) {
-    return res.status(400).json({ msg: 'La contraseña no cumple con los requisitos mínimos' });
+    return res.status(400).json({ msg: 'La contraseña no cumple con los requisitos mínimos,total 8 caracteres' });
   }
 
   
@@ -235,3 +261,87 @@ app.get('/mis-asistencias/:usuario_id', (req, res) => {
         }
     );
 });
+
+
+app.put('/feature-edit',archivo.single('fileOpeneReg'), async (req, res) => {
+
+
+  if (!req.file) {
+   return res.status(400).json({msg: 'La foto es obligatoria'});
+  }
+
+  
+  const { idUsuario,correoElectronico, apodo, nombreCompleto, cumple } = req.body;  //Estos son los name de los input
+  const imagen = req.file.buffer.toString('base64');
+ 
+ 
+  // Validar que los campos no estén vacíos
+  if (!idUsuario || !correoElectronico || !apodo || !nombreCompleto || !cumple  ) {
+    return res.status(400).json({ msg: 'Todos los campos son obligatorios' });
+  }
+
+
+  const checkEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!checkEmail.test(correoElectronico)) {
+    return res.status(400).json({ msg: 'El correo no es válido' });
+  }
+
+
+  const checkPalabras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+
+  if (!checkPalabras.test(nombreCompleto)) {
+    return res.status(400).json({ msg: 'El nombre solo puede contener letras y espacios' });
+  }
+
+  if (!checkPalabras.test(apodo)) {
+    return res.status(400).json({ msg: 'El apodo solo puede contener letras y espacios' });
+  }
+
+  const fechaNacimiento = new Date(cumple); //
+
+  if (isNaN(fechaNacimiento.getTime())) {
+    return res.status(400).json({ msg: 'La fecha de nacimiento no es válida' });
+  }
+
+  const hoy = new Date();
+  if (fechaNacimiento > hoy) {
+    return res.status(400).json({ msg: 'La fecha de nacimiento no puede ser en el futuro' });
+  }
+
+   
+ 
+  Db.query('call sp_userUpdate(?,?,?,?,?,?, @existe, @mensaje)', [idUsuario,nombreCompleto,correoElectronico,apodo,cumple,imagen], (err, result) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).json({ msg: "Error en el servidor" });
+    }
+
+    Db.query('select @existe as existe, @mensaje as mensaje', (err2, result2) => {
+      if (err2) {
+        
+    
+        return res.status(500).json({ msg: "Error en el servidor" });
+      }
+
+      const { existe, mensaje } = result2[0];
+      if (existe === 1) {
+        console.log(mensaje)
+         res.json({ msg: mensaje,
+          redirect: "/profile",
+          usuario:{
+            usuarioPK: idUsuario,
+            nombreCompleto: nombreCompleto,
+            correo: correoElectronico,
+            nomUsu: apodo,
+            fechaNacimiento: cumple,
+            foto: imagen
+
+          }
+         });
+
+      } 
+    });
+  }
+  );
+
+})

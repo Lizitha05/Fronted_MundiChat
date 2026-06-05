@@ -9,6 +9,7 @@ fetch("/header-login") .then(response => response.text()) .then(data => {
 });
 
 
+
 function cargarFotoPerfil(){
 
 const usuario = JSON.parse(localStorage.getItem('usuario'));

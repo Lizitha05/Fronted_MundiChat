@@ -251,15 +251,17 @@ img{
 
 
 .sendMessage{
-    position: fixed;
-    top: 580px;
-    right: 50px;
+    position:fixed;
+    bottom: 0;              /* lo pega al fondo */
+    left: 70%;              /* lo centra horizontalmente */
+    transform: translateX(-50%);
+    margin:10px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: var(--color-100);
     width: 770px;
-    height: 110px;
+    height: 60px;
     border-radius: 80px;
 }
 
@@ -272,8 +274,8 @@ img{
 .iDoc {
   background-image: url(/icons/icon-compartir.png);
   background-size: cover;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
   cursor: pointer;
 }
@@ -299,9 +301,38 @@ img{
 }
 
 .imgSend{
-    width: 80px;
-    height: 80px;
+    width: 40px;
+    height: 40px;
 }
 
 
 
+#message-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding:10px;
+    font-size: 20px;
+    font-family: var(--letra-200);
+    border-radius: 20px;
+}
+
+.my-message{
+    align-self: flex-end;
+    text-align: right;
+    background: #4CAF50;
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+.other-message{
+    align-self: flex-start;
+    text-align: left;
+    background: #e5e5ea;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 8px;
+}

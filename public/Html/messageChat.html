@@ -5,14 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MundiChat - Chat Messages</title>
+
+        <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/messageChat.css">
 </head>
-
+<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script defer src="/js/script_chat.js"></script>
 <body>
 
+   
     <div id="header-login"></div>
-
 
     <div class="chatConteiner">
         <div class="wrapperFirst">
@@ -49,45 +53,20 @@
 
         <div class="wrapperSecond">
 
-            <div class="headerChat">
-                <img src="/Image/perfil1.png" alt="">
-                <input class="iUser" type="text" value="Karen Abigail Guerra Lozano">
-            </div>
-
             <div class="message">
 
-                <div class="userDialogs">
-
-                    <div class="userOne">
-                        <label class="lUserName" for="text">Karen Abigail Guerra Lozano</label>
-
-                        <input class="iTextChat" type="text" value="Eh we pescado" disabled>
-                    </div>
-
-                    <div class="userTwo">
-                        <label class="lUserName" for="text">Andreiy Medrano Garzia</label>
-
-                        <input class="iTextChat" type="text" value="que pasho?" disabled>
-                    </div>
-
-                   <div class="userOne">
-                        <label class="lUserName" for="text">Karen Abigail Guerra Lozano</label>
-
-                        <input class="iTextChat" type="text" value="Eh we pescado" disabled>
-                    </div>
-
-                </div>
-
+                <div id="message-container"></div>
                 <div class="sendMessage">
-
-                    <label class="iDoc">
+                    <form id="send-container">
+                        <label class="iDoc">
                         <input type="file" class="hiddenFile">
-                    </label>
+                        </label>
 
+                        <input class="imessage" type="text" id="message-input">
 
-                    <input class="imessage" type="text">
-
-                    <button class="btnSend"><img class="imgSend" src="/icons/icon-enviar.png" alt=""></button>
+                        <button class="btnSend" id="send-button"><img class="imgSend" src="/icons/icon-enviar.png" alt=""></button>
+                    </form>
+              
                 </div>
 
             </div>
@@ -98,5 +77,8 @@
 </body>
 
 <script src="/js/partial.js"></script>
+
+<script src="/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+
 
 </html>

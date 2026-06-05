@@ -1,4 +1,6 @@
 
+
+
 function cargarPerfil(){
 
 const usuario = JSON.parse(localStorage.getItem('usuario'));
@@ -20,6 +22,7 @@ if (usuario && usuario.foto) {
   document.getElementById('img').src = fotoSrc;
   document.getElementById('nombreCompleto').textContent = usuario.nombreCompleto;
   document.getElementById('correoElectronico').textContent = usuario.correo;
+  
   document.getElementById('apodo').textContent = usuario.nomUsu;
   
   const fecha = new Date(usuario.fechaNacimiento);
@@ -37,6 +40,17 @@ if (usuario && usuario.foto) {
 }else{
     console.log('No hay foto en el local storage');
 }
+}
+
+function cerrarSesion(event){
+
+  event.preventDefault();
+
+  localStorage.clear();
+  sessionStorage.clear();
+  
+  window.location.href = '/login';
+  
 }
 
 cargarPerfil();
