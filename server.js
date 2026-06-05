@@ -113,7 +113,17 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
   const { mail, nickname, nombre, date, password } = req.body;  //Estos son los name de los input
   const imagen = req.file.buffer.toString('base64');
 
- 
+  const max_sixe_bytes = 5*1024*1024;
+  const max_base64_length = 4* Math.ceil(max_sixe_bytes/3);
+
+  if(imagen.lenght > max_base64_length){
+
+    return res.status(400).json({
+   
+      msg: 'La imagen excede el tamaño máximo permitido (5MB)';
+      
+    });
+   }
   // Validar que los campos no estén vacíos
   if (!mail || !nickname || !nombre || !date || !password ) {
     return res.status(400).json({ msg: 'Todos los campos son obligatorios' });
@@ -150,7 +160,7 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
   // Validar contraseña
   const checkContra = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,}$/;
   if (!checkContra.test(password)) {
-    return res.status(400).json({ msg: 'La contraseña no cumple con los requisitos mínimos' });
+    return res.status(400).json({ msg: 'La contraseña no cumple con los requisitos mínimos,total 8 caracteres' });
   }
 
   
