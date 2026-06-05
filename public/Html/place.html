@@ -12,19 +12,19 @@
 <body>
     <div id="header-login"></div>
 
-    <div class="event-section">
-        <div class="section-event1">
+    <div id="placeDetails" class="event-section">
+        <div id="placeInfo" class="section-event1">
 
-            <img class="img-barraPLA" src="/Image/santaLU-barra.png" alt="">
+            <img class="img-barraPLA" src="/Image/monterrey.jpg" alt="">
 
             <div class="card-blanca">
-                <div class="WrapperImg">
-                    <img class="imgProf" src="/Image/perfil.png" alt="">
+                <div id="photoPlace" class="WrapperImg">
+                    <img id="fotoLugar" class="imgProf" src="" alt="">
                 </div>
 
-                <div class="infoPlace">
-                    <p class="titulo-place">PASEO SANTA LUCIA</p>
-                    <p class="info">Lorem ipsum dolor sit amet consectetur adipiscing elit, nunc augue aptent litora
+                <div id="infoPlace" class="infoPlace">
+                    <p id="tituloLugar" class="titulo-place">NOMBRE LUGAR</p>
+                    <p id="descripcionLugar" class="info">Lorem ipsum dolor sit amet consectetur adipiscing elit, nunc augue aptent litora
                         pulvinar at arcu
                         himenaeos, per cubilia cras nostra ac porta.</p>
                 </div>
@@ -37,15 +37,16 @@
         <div class="section-event2">
 
             <div class="info-place">
-                <p>
+                <p id="detallesLugar">
                     Lorem ipsum dolor sit amet consectetur adipiscing elit, nunc augue aptent litora pulvinar at arcu
                     himenaeos, per cubilia cras nostra ac porta.
                 </p>
             </div>
 
             <div class="ubication-place">
+                <p id="ubicacionLugar" style="display:none;"></p>
                 <img class="imgUbi" src="/icons/icon-location.png" alt="">
-                <button class="btnCompartir">compartir</button>
+                <button onClick="copyToClipboard()" class="btnCompartir">Copiar</button>
             </div>
 
         </div>
@@ -60,9 +61,26 @@
         
     </div>
 
+    <!--<script type="text/javascript">
+        const placeDetails = document.getElementById("placeDetails");
+        const selectedPlace = [
+            {nombreL:"PASEO SANTA LUCÍA", imageL:"", 
+            descL:"Un hermoso lugar para recorrer en compañía y disfrutar de los maravillosos atractivos turísticos"}
+        ]
+    </script>
+
+    <script type="text/javascript">
+        const placeInfo = document.getElementById("placeInfo");
+        selectedPlace.forEach(el =>{
+
+        })
+    </script> -->
+<script src="/js/place.js"></script>
 </body>
 <script src="/js/header.js"></script>
 <script src="/js/partial.js"></script>
 <script src="/js/placeANDevent.js"></script>
+
+
 
 </html>
