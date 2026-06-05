@@ -66,7 +66,7 @@ async function cargarEventos() {
     }
 }
 
-//SIRVE PARA CARGAR LA FECHA DE LOS EVENTOS CON SU AÑO, MES, DIA, HORA, MINUTO Y SEGUNDO 
+//DESMENUSA LA DATE TIME DE LA BASE DE DATOS
 function formatearFecha(fechaString) {
     if (!fechaString) return '';
     const fecha = new Date(fechaString);

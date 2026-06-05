@@ -169,13 +169,18 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 })
 
 //TRAER CUPONES DE USUARIO
-app.get('/request-cupones', (req, res) => {
+app.get('/request-cupones/:usuario_id', (req, res) => {
+    const { usuario_id } = req.params;
     Db.query(
-        'select * from UsuarioCupon',
+        `SELECT c.cuponPK, c.TituloCupon, c.descripcion, c.CodigoCupon, c.vencimiento
+         FROM cupon c
+         INNER JOIN UsuarioCupon uc ON c.cuponPK = uc.CuponFK
+         WHERE uc.UsuarioFK = ?`,
+        [usuario_id],
         (err, result) => {
             if (err) {
                 console.log(err);
-                return res.status(500).json({ msg: 'Error en el servidor' });
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
             }
             res.json(result);
         }
@@ -189,7 +194,7 @@ app.get('/request-eventos', (req, res) => {
         (err, result) => {
             if (err) {
                 console.log(err);
-                return res.status(500).json({ msg: 'Error en el servidor' });
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
             }
             res.json(result);
         }
@@ -206,7 +211,7 @@ app.post('/confirmar-asistencia', (req, res) => {
         (err, result) => {
             if (err) {
                 console.log(err);
-                return res.status(500).json({ msg: 'Error en el servidor' });
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
             }
             res.json({ msg: 'Asistencia confirmada', id: result.insertId });
         }
@@ -223,7 +228,7 @@ app.get('/mis-asistencias/:usuario_id', (req, res) => {
         (err, result) => {
             if (err) {
                 console.log(err);
-                return res.status(500).json({ msg: 'Error en el servidor' });
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
             }
             const eventosConfirmados = result.map(row => row.EventoFK);
             res.json(eventosConfirmados);
