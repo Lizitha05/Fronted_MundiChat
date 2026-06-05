@@ -5,6 +5,22 @@ const multer = require('multer');
 const path = require('path');
 const app = express();
 
+//*Es importante es el socket
+const { Server } = require("socket.io")
+
+const io = new Server(3000, {
+  cors: {
+    origin: "*"
+  }
+})
+
+io.on('connection', socket =>{
+    socket.on('send-chat-message', data=>{
+        socket.broadcast.emit('chat-message', data)
+    })
+})
+
+
 const PagesRoutes = require('./routes/Rutas.js'); //Variable que guarda la direccion de mis rutas
 
 const PORT = 3001;
