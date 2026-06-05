@@ -4,10 +4,32 @@ const copyToClipboard = async () => {
     try {
         const ubi = document.getElementById("ubicacionLugar").innerText
         await navigator.clipboard.writeText(ubi)
-        alert('Se ha copiado la ubicación del lugar.')
+        Swal.fire({
+                    icon: "success",
+                    text: "Se copió la ubicación del lugar.",
+                    customClass: {
+                        text: 'letter',
+                        confirmButton: 'btn-ok',
+                        icon: 'icon-custom'
+                    },
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#1D2984',
+                    iconColor: '#1D2984'
+                });
     } catch (error) {
         console.log(error)
-        alert('Ha ocurrido un error. Intente mas tarde.')
+        Swal.fire({
+                    icon: "error",
+                    text: "Ocurrió un error, intente mas tarde.",
+                    customClass: {
+                        text: 'letter',
+                        confirmButton: 'btn-ok',
+                        icon: 'icon-custom'
+                    },
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#841d1d',
+                    iconColor: '#841d1d'
+                });
     }
 }
 
