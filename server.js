@@ -49,15 +49,23 @@ app.listen(PORT, () => {
   port: 3306
 }); */
 
-//!Liz
-const Db = mysql.createConnection({
+//!Andreiy
+/* const Db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'emp4eTDYCAMG!',
   database: 'mundiChat',
   port: 3306
-});
+}); */
 
+//!Liz
+const Db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Noe_050703',
+  database: 'mundiChat',
+  port: 3306
+});
 // Validar conexion a la base de datos
 Db.connect((ErrorConexion) => {
 
