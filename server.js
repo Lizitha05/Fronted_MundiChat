@@ -40,9 +40,9 @@ app.listen(PORT, () => {
 
 // Conexión a la base de datos
 const Db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'Noe_050703',
+  host: '127.0.0.1',
+  user: 'mundichat',
+  password: 'abc123',
   database: 'mundiChat',
   port: 3306
 });
@@ -194,6 +194,73 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 
 })
 
+//TRAER CUPONES DE USUARIO
+app.get('/request-cupones/:usuario_id', (req, res) => {
+    const { usuario_id } = req.params;
+    Db.query(
+        `SELECT c.cuponPK, c.TituloCupon, c.descripcion, c.CodigoCupon, c.vencimiento
+         FROM cupon c
+         INNER JOIN UsuarioCupon uc ON c.cuponPK = uc.CuponFK
+         WHERE uc.UsuarioFK = ?`,
+        [usuario_id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
+            }
+            res.json(result);
+        }
+    );
+});
+
+//TRAER EVENTOS DE USUARIO
+app.get('/request-eventos', (req, res) => {
+    Db.query(
+        'SELECT * FROM Evento WHERE EventoActivo = 1',
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
+            }
+            res.json(result);
+        }
+    );
+});
+
+//CONFIRMAR ASISTENCIA DE USUARIO
+app.post('/confirmar-asistencia', (req, res) => {
+    const { evento_id, usuario_id } = req.body;
+    
+    Db.query(
+        'INSERT INTO UsuarioEvento (UsuarioFK, EventoFK) VALUES (?, ?)',
+        [usuario_id, evento_id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
+            }
+            res.json({ msg: 'Asistencia confirmada', id: result.insertId });
+        }
+    );
+});
+
+//TRAER ASISTENCIAS DEL USUARIO (NUEVO)
+app.get('/mis-asistencias/:usuario_id', (req, res) => {
+    const { usuario_id } = req.params;
+    
+    Db.query(
+        'SELECT EventoFK FROM UsuarioEvento WHERE UsuarioFK = ?',
+        [usuario_id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
+            }
+            const eventosConfirmados = result.map(row => row.EventoFK);
+            res.json(eventosConfirmados);
+        }
+    );
+});
 
 
 app.put('/feature-edit',archivo.single('fileOpeneReg'), async (req, res) => {

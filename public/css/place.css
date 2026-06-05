@@ -216,13 +216,26 @@ p {
 }
 
 .event-content{
-    display: flex;
+   display: flex;
+    flex-direction: column;      
+    justify-content: space-between;
     align-items: center;
-    margin: 50px 100px 50px 100px;
+    padding: 10px;
+    margin: 50px 100px;
+    width: 100%;
+    max-width: 900px; 
 }
 
+.form-event-content{
+    display: flex;
+    flex-direction: column;     
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+
+}
 .section-event{
-   
     background-image: url(/Image/container-textCard.png);
     background-position: center;
     background-repeat: no-repeat;
@@ -230,11 +243,10 @@ p {
     padding: 30px;
     width: 600px;
     height: 300px;
-
     display: grid;
     justify-content: center;
-    align-items:center ;
-   
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .event{
@@ -322,6 +334,10 @@ input{
     opacity: 1;
 }
 
+.custom-check {
+    margin-left: 20px;
+    flex-shrink: 0;
+}
 
 
 
@@ -340,8 +356,6 @@ input{
     display: inline-block;
     position: relative;
     cursor: pointer;
-    margin-left: 50px;
-
 
 
     transition: 0.25s ease;
@@ -372,5 +386,9 @@ input{
     opacity: 1;
 }
 
+.bookmark-toggle {
+    margin-left: 20px;
+    flex-shrink: 0;
+}
 
 
