@@ -27,8 +27,8 @@ app.listen(PORT, () => {
 const Db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Noe_050703',
-  database: 'catBlog',
+  password: 'emp4eTDYCAMG!',
+  database: 'mundiChat',
   port: 3306
 });
 
