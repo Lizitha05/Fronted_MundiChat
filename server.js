@@ -39,10 +39,21 @@ app.listen(PORT, () => {
 });
 
 // Conexión a la base de datos
-const Db = mysql.createConnection({
+
+//!Aby
+/* const Db = mysql.createConnection({
   host: '127.0.0.1',
   user: 'mundichat',
   password: 'abc123',
+  database: 'mundiChat',
+  port: 3306
+}); */
+
+//!Liz
+const Db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'Noe_050703',
   database: 'mundiChat',
   port: 3306
 });
@@ -108,7 +119,7 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
    return res.status(400).json({msg: 'La foto es obligatoria'});
   }
 
-  const { mail, nickname, nombre, date, password } = req.body;  //Estos son los name de los input
+ /*  const { mail, nickname, nombre, date, password } = req.body;  //Estos son los name de los input
   const imagen = req.file.buffer.toString('base64');
 
   const max_sixe_bytes = 5*1024*1024;
@@ -121,7 +132,8 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
       msg: 'La imagen excede el tamaño máximo permitido (5MB)';
       
     });
-   }
+   } */
+  
   // Validar que los campos no estén vacíos
   if (!mail || !nickname || !nombre || !date || !password ) {
     return res.status(400).json({ msg: 'Todos los campos son obligatorios' });
