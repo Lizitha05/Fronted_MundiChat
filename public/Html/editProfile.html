@@ -10,41 +10,68 @@
 <body>
      <div id="header-login"></div>
 
-    <div class="edit-profile-section">
+     
+    <div class="profile-card d-flex justify-content-center align-items-center  mt-4 ">
 
-        <h3 class="Change-prof-title">EDITAR PERFIL</h3>
+        <form class="formProfile d-grid place-items-center" id="formProf">
 
-        <div class="photo-change-profile">
+             <h1 class="profile-text text-center">Editar perfil</h1>
+
+            <div class="wrapperImg">
+
+                <label for="idFoto" class="form-label"></label>
+                <input type="file" id="fileOpeneReg" style="display:none" accept="image/*" name="fileOpeneReg">
+                <img class="imgProf rounded-circle" id="img"  src="" alt="" width="300" height="300" onclick="document.getElementById('fileOpeneReg').click()">
+
+            </div>
+            
+        
+            <div class="form-floating mt-2">
+
+                <input type="text" class="form-control mt-2" id="idNombre" name="nombreCompleto">
+                <label for="floatingInputDisabled" class="letra">Nombre completo</label>
+                
+            </div>
+
+             <div class="form-floating mt-2">
+                <input type="mail" class="form-control mt-2" id="idMail" name="correoElectronico">
+                <label for="floatingInputDisabled" class="letra">Correo electronico</label>
+
+            </div>
+
+             <div class="form-floating mt-2">
+                <input type="text" class="form-control mt-2" id="idApodo" name="apodo">
+                <label for="floatingInputDisabled" class="letra">Apodo</label>
+
+            </div>
+
+             <div class="form-floating mt-2">
+                <input type="date" class="form-control mt-2" id="idCumple" name="cumple">
+                <label for="floatingInputDisabled" class="letra">Cumpleaños</label>
+
+            </div>
+
+ 
+
+            <div class="mt-3 d-flex justify-content-center align-items-center">
+
+                 <button class="btn-guardar mb-2 p-2" id="" type="submit">Guardar</button>
+            </div>
+            
+            
            
-            <input type="file" id="fileOpeneReg" style="display:none" accept="image/*">
-            <img id="preview" class="imgProfChange" src="/Image/perfil.png" alt="" onclick="document.getElementById('fileOpeneReg').click()">
-    
-        </div>
-
-        <form class="fill-chage-profile">
-            <label>NOMBRE COMPLETO</label>
-            <input type="text" id="new-name" class="iEdit">
-            <label>NICK NAME</label>
-            <input type="text" id="new-nick-name" class="iEdit">
-            <label>FECHA DE NACIMIENTO</label>
-            <input type="date" id="new-date-birth" class="iEdit">
-            <label>CORREO ELECTRONICO</label>
-            <input type="text" id="new-email" class="iEdit">
-            <label>CONTRASEñA</label>
-            <input type="text" id="new-password" class="iEdit">
-
+         
         </form>
 
-        <div class="flexBtn">
-                    <button class="btn-EditProf"><a class="link" href="/Html/profile.html">REGRESAR</a></button>
-                    <button class="btn-EditProf">GUARDAR</button>
-        </div>
+        
 
-     </div>
+    </div>
+
     
 </body>
 
 <script src="/js/partial.js"></script>
 <script src="/js/editProfile.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

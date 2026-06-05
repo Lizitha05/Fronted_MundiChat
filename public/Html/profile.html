@@ -5,57 +5,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MundiChat - profile</title>
+    
+    <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap-icons-1.13.1/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="/css/alerts.css">
+
 
 </head>
 
 <body>
     <div id="header-login"></div>
 
-    <div class="wrapperProfile">
+    <div class="profile-card d-flex justify-content-center align-items-center  mt-5 ">
 
-        <div class="flexProf">
+        <form class="formProfile d-grid place-items-center">
+
+             <h1 class="profile-text text-center">Mi perfil</h1>
 
             <div class="wrapperImg">
-                <img class="imgProf" src="/Image/perfil.png" alt="">
+                <img class="imgProf rounded-circle" id="img"  src="" alt="" width="300" height="300">
 
             </div>
-
-            <div class="data">
-
-                <h1 id="myProf">Mi perfil</h1>
-
-
-                <label class="lData" for="">Andreiy Medrano Garcia</label>
-
-                <label class="lData" for="">El pescado</label>
-                <label class="lData" for="">05-12-03</label>
-                <label class="lData" for="">pescado@gmail.completo</label>
-
-
-
-                <div class="flexBtn">
-                    <button class="btn-Prof"><a class="link" href="/Html/events.html">Mis eventos</a></button>
-                    <button class="btn-Prof"><a class="link" href="/Html/coupon.html">Mis cupones</a></button>
-                </div>
-            </div>
-
-
-        </div>
-
-        <div class="wrapperTooltip">
-            <a href="/Html/editProfile.html"> <img class="imgEdit" src="/icons/icon-editProfile.png" alt="Editar"></a>
-              
-             <span class="tooltiptext">Editar perfil</span>
             
+          
+                <div class="info d-flex justify-content-center align-items-center mt-4">
+            
+                    <label class="letra fs-6 mb-1">Nombre : </label>
+                    <p class="fs-6 mb-1" id="nombreCompleto">Nombre</p>
+            
+                </div>
+                <div class="info d-flex justify-content-center align-items-center">
+                    <label class="letra fs-6 mb-1">Correo :</label>
+                    <p class="fs-6 mb-1" id="correoElectronico">correo</p>
+            
+                </div>
+            
+                <div class="info d-flex justify-content-center align-items-center">
+                    <label class="letra fs-6 mb-1">Apodo :</label>
+                    <p class="fs-6 mb-1" id="apodo">apodo</p>
+                </div>
+            
+ 
+            
+            <button class="btn-general mb-2 p-2 "><a class="link2" href="/editProfile" ><i class="bi bi-pen-fill m-4"></i>Editar perfil</a></button>
 
-        </div>
+            <button class="btn-general mb-2 p-2"><i class="link2 bi bi-cake2-fill m-4"><label for="" id="cumple"></label></i></button>
+
+            <button class="cerrarSesion mb-2 p-2" id="logout" onclick="cerrarSesion(event)" type="button">cerrar sesion</button>
+
+                <div class="d-flex justify-content-center align-items-center gap-4">
+                    <button class="btn-Prof"><a class="link" href="/events">Mis eventos</a></button>
+                    <button class="btn-Prof"><a class="link" href="/coupon">Mis cupones</a></button>
+                </div>
+         
+        </form>
+
+        
 
     </div>
+
+
 </body>
+
 
 <script src="/js/partial.js"></script>
 <script src="/js/profile.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </html>

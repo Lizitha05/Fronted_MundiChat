@@ -1,0 +1,53 @@
+
+# MundiChat
+
+Aplicacion creado con el objetivo de facilitar la comunicaciona turistas por medio de chats y llamadas, con la informacion de los lugares turisticos a su alcance,asi como beneficios como cupones.
+
+## Authors
+
+- [@Lizbeth](https://github.com/Lizitha05)
+- [@Abigail](https://github.com/div-Abi-container)
+- [@Andreiy](https://github.com/DreyAndreiy)
+## Tecnologias
+
+**Fronted** Bootstrap , CSS3 , HTML5
+
+**Backend** Node.js ,Express.js ,Socket.io ,Multer
+
+**Base de datos** MySql
+
+**Seguridad** npm audit
+
+
+
+## Installation
+
+Para inicializar el proyecto con package.json ,usamos el siguiente comando:
+```bash
+  npm init-y
+```
+
+Despues de este paso en el package.json ,en la parte de scripts,pegamos este comando ,despues de cada npm install nos checara si todo en orden con los archivos de los paquetes.
+```bash
+  "postinstall": "npm audit"
+```
+
+Este comando se ejecuta para instalar los diferentes paquetes ,que usaremos:
+
+**express**  Es un framerwork de js que nos facilita levantar el servidor y apis
+
+**multer** Es para poder usar el multipart/form-data , es un middleware para el manejo de los archivos
+
+**mysql2** Es para poder ejecutar querys en node.js
+
+```bash
+  npm install express , multer , mysql2
+```
+
+Finalmente ejecutamos node server.js , para ejecutar.
+
+
+## Referencias
+
+Para la creacion de readme.so , se uso :
+https://readme.so/editor
