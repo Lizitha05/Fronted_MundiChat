@@ -6,13 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MundiChat - Chat Messages</title>
 
-        <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <script type="module">
+        import { io } from "https://cdn.socket.io/4.8.3/socket.io.esm.min.js";
+
+        const socket = io();
+
+        const form = document.getElementById('send-container');
+        const input = document.getElementById('message-input')
+        const messages = document.getElementById('message-container');
+
+        socket.on('chat message', (msg)=>{
+            const item = `<li>${msg}</li>`;
+            messages.insertAdjacentHTML('beforeend' , item)
+        })
+        
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            if(input.value){
+                socket.emit('chat message' , input.value);
+                input.value = '';
+            }
+        })
+    </script>
+    <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/messageChat.css">
 </head>
-<script defer src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script defer src="/js/script_chat.js"></script>
+
 <body>
 
    

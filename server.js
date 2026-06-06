@@ -7,19 +7,25 @@ const app = express();
 
 //*Es importante es el socket
 const { Server } = require("socket.io")
+const {createServer} = require('node:http')
 
-const io = new Server(3000, {
-  cors: {
-    origin: "*"
-  }
-})
+const server = createServer(app);
 
-io.on('connection', socket =>{
-    socket.on('send-chat-message', data=>{
-        socket.broadcast.emit('chat-message', data)
+//in/out de entrada  y salida
+const io = new Server(server);
+
+io.on('connection', (socket) =>{
+    
+    console.log('usuario conectado');
+    socket.on('disconnect',()=>{
+      console.log('usuario desconectado')
+    })
+
+    socket.on('chat message',(msg)=>{
+      /* console.log('message:' + msg); */
+      io.emit('chat message', msg);
     })
 })
-
 
 const PagesRoutes = require('./routes/Rutas.js'); //Variable que guarda la direccion de mis rutas
 
@@ -34,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', PagesRoutes);
 
 // Escuchar servidor
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log('Servidor corriendo en http://localhost:3001');
 });
 
