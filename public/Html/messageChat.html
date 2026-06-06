@@ -4,102 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MundiChat - Chat Messages</title>
-
-    <script type="module">
-        import { io } from "https://cdn.socket.io/4.8.3/socket.io.esm.min.js";
-
-        const socket = io();
-
-        const form = document.getElementById('send-container');
-        const input = document.getElementById('message-input')
-        const messages = document.getElementById('message-container');
-
-        socket.on('chat message', (msg)=>{
-            const item = `<li>${msg}</li>`;
-            messages.insertAdjacentHTML('beforeend' , item)
-        })
-        
-        form.addEventListener('submit',(e)=>{
-            e.preventDefault();
-            if(input.value){
-                socket.emit('chat message' , input.value);
-                input.value = '';
-            }
-        })
-    </script>
+    <title>MundiChat - Mensajes</title>
+    <script src="https://cdn.socket.io/4.8.3/socket.io.min.js"></script>
+     <link rel="stylesheet" href="/bootstrap-icons-1.13.1/bootstrap-icons.css">
     <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
-
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/messageChat.css">
 </head>
 
 <body>
 
-   
     <div id="header-login"></div>
 
     <div class="chatConteiner">
         <div class="wrapperFirst">
+            <div class="usuarios-header">
+                <h5>Contactos</h5>
+                <input type="text" id="buscarUsuario" class="form-control" placeholder="Buscar usuario...">
 
-            <div class="conteinerChats">
-                <div class="chatUser">
-                    <img src="/Image/perfil1.png" alt="">
-                    <div class="content">
-                        <label class="lChat" for="">Karen Abigail Guerra Lozano</label>
-
-                        <input class="iChat" type="text" value="Eh we,pescado!" disabled>
-                    </div>
-                </div>
-
-                <div class="chatUser">
-                    <img src="/Image/perfil1.png" alt="">
-                    <div class="content">
-                        <label class="lChat" for="">Karen Abigail Guerra Lozano</label>
-
-                        <input class="iChat" type="text" value="Eh we,pescado!" disabled>
-                    </div>
-                </div>
-
-                <div class="chatUser">
-                    <img src="/Image/perfil1.png" alt="">
-                    <div class="content">
-                        <label class="lChat" for="">Karen Abigail Guerra Lozano</label>
-
-                        <input class="iChat" type="text" value="Eh we,pescado!" disabled>
-                    </div>
-                </div>
+             
+            </div>
+            <div id="contenedor-usuarios">
+                <!-- Todos los usuarios se cargarán aquí -->
+                <div class="text-center p-3">Cargando contactos...</div>
             </div>
         </div>
 
         <div class="wrapperSecond">
 
-            <div class="message">
 
-                <div id="message-container"></div>
-                <div class="sendMessage">
-                    <form id="send-container">
-                        <label class="iDoc">
-                        <input type="file" class="hiddenFile">
-                        </label>
+            <div id="chatSection" style="display:none;">
 
-                        <input class="imessage" type="text" id="message-input">
 
-                        <button class="btnSend" id="send-button"><img class="imgSend" src="/icons/icon-enviar.png" alt=""></button>
-                    </form>
-              
+                <div class="chat-header" id="chat-header">
+                    <!-- Información del chat actual -->
+
+                    
                 </div>
-
+                <div class="message">
+                    <div id="message-container"></div>
+                    <div class="sendMessage">
+                        <form id="send-container">
+                            <input class="imessage" type="text" id="message-input" placeholder="Escribe un mensaje...">
+                            <button class="btnSend" id="send-button">
+                                <i class="imgSend bi bi-send-fill"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-
+            <div id="noChatSeleccionado" style="display:flex; justify-content:center; align-items:center; height:100%;">
+                <p>Selecciona un contacto para empezar a chatear</p>
+            </div>
         </div>
     </div>
 
+    <script src="/js/messageChat.js"></script>
+    <script src="/js/partial.js"></script>
+    <script src="/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
+  
 </body>
-
-<script src="/js/partial.js"></script>
-
-<script src="/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
-
 
 </html>

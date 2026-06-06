@@ -57,282 +57,246 @@
 }
 
 body {
+background-image: url("/Image/fondo-icon.png");
 
-    
-    background-image: url("/Image/fondo-icon.png");
+background-position: center;
+background-repeat: repeat;
+background-size: 40%;
+overflow: hidden;
+background-color: var(--color-400);
 
-    background-position: center;
-    overflow: hidden;
-
-}
-
-.chatConteiner{
-    display: flex;
-   
 }
 
 .wrapperFirst{
-    display: grid;
-    
-    justify-content: center;
-   
-    width: 600px;
-    height: 800px;
-    background-color: var(--color-200);
-    overflow-y: auto;
-    
+    background-color: var(--color-500);
 }
 
-.conteinerChats{
+
+
+.usuarios-header {
     margin: 20px;
-    height: 100%;
-    
-}
-
-
-
-.chatUser{
-display: flex;
-align-items: center;
-justify-content: left;
-background-color: var(--color-400);
-width: 540px;
-height: 124px;
-border-radius: 15px;
-box-shadow: 0px 0px 10px #000000;
-margin: 10px;
-padding: 10px;
-}
-
-.content{
-    display: grid;
-    justify-content: left;
-    align-items: center;
-    margin: 10px;
-    gap: 15px;
-}
-
-.lChat{
-    width: 309px;
-    height: 40px;
-    background-color: transparent;
-    border-radius: 15px;
     padding: 15px;
-    border: none;
-    outline: none;
-
-    font-family: var(--letra-200);
-    font-size: 18px;
-    color: var(--color-100)
-}
-
-.iChat{
-    width: 309px;
-    height: 40px;
-    background-color: var(--color-100);
-    border-radius: 15px;
-    padding: 15px;
-    border: none;
-    outline: none;
-
-    font-family: var(--letra-200);
-    font-size: 18px;
-    color: var(--color-400)
-}
-
-img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-
-/*/** Segunda mitad */
-
-
-.wrapperSecond{
-    display: grid;
-    
-    width: 930px;
-    height: 100vh;
-    overflow: auto;
-    
-}
-
-.headerChat{
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content:left ;
-    padding: 30px;
-    width: 980px;
-    height: 124px;
-    gap: 20px;
-
-    background-color: var(--color-400);
-    box-shadow:  100px 10px 20px #2c2b2b;
-    
-}
-
-.iUser{
-    border: none;
-    background-color: transparent;
-    font-family: var(--letra-200);
-    font-size: 32px;
+    border-bottom: 1px solid var(--color-400);
+    font-family: var(--letra-400);
     color: var(--color-100);
-    width: 462px;
 }
 
-
-
-.message{
-   
-    
-}
-
-
-.userDialogs{
-    
-   display: grid;
-   align-items: start;
-   gap: 10px;
-  
-   padding: 20px;
-   
-   
-   margin-top: 140px; 
-   margin-bottom: 300px;
-   
-   
-}
-
-.userOne{
-    
-    display: grid;
-    justify-content: right;
-    align-items: center;
-    padding: 20px;
-    
-    
-    
-}
-
-.userTwo{
-    display: grid;
-    justify-content: left;
-     padding: 20px;
-  
-    
-}
-
-.lUserName{
-    font-family: var(--color-200);
-    font-size: 20px;
-    color:var(--color-100);
-}
-
-.iTextChat{
-    font-family: var(--color-200);
-    font-size: 20px;
-    color:var(--color-100);
-   
-    background-image: url(/Image/bubble-chat.png) ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 500px;
-    height: 150px;
-    padding: 30px;
-
-    border-radius: 25px;
-    border: none;
-    
-}
-
-
-.sendMessage{
-    position:fixed;
-    bottom: 0;              /* lo pega al fondo */
-    left: 70%;              /* lo centra horizontalmente */
-    transform: translateX(-50%);
-    margin:10px;
+.chatUser {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: var(--color-100);
-    width: 770px;
-    height: 60px;
-    border-radius: 80px;
-}
-
-
-.btnSend{
-    background-color: transparent;
-    border: none;
-}
-
-.iDoc {
-  background-image: url(/icons/icon-compartir.png);
-  background-size: cover;
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.hiddenFile {
-  display: none;
-}
-
-
-.imessage{
-    width: 527px;
-    height: 57px;
-
-    background-color: transparent;
-    border: none;
-    outline: none;
+    padding: 15px;
+    border-bottom: 1px solid var(--color-400);
+    cursor: pointer;
+    transition: background-color 0.2s;
 
     font-family: var(--letra-200);
-    color: var(--color-400);
+
+}
+
+.chatUser:hover {
+    background-color: var(--color-400);
+}
+
+.chatUser.active {
+    background-color: var(--color-400);
+    border-left: 3px solid var(--color-300);
+}
+
+.chatUser img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid var(--color-100);
+}
+
+.content {
+    flex: 1;
+}
+
+.lChat {
+    font-weight:lighter;
+    display: block;
+    margin-bottom: 5px;
+    font-family: var(--letra-400);
+    color: var(--color-100);
     font-size: 20px;
-
-    padding: 20px;
 }
 
-.imgSend{
-    width: 40px;
-    height: 40px;
+.nombreCompleto {
+    font-weight: bold;
+    font-size: 12px;
+    color: #666;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.iChat {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--color-10000);
+    font-size: 12px;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.iChat:disabled {
+    background: transparent;
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: var(--color-400);
+
+    font-family: var(--letra-400);
+    color:var(--color-100);
+    
+}
+
+.chat-header-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid var(--color-100);
+}
+
+.mensaje {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+}
+
+.mensaje-propio {
+    background-color: #dcf8c6;
+    align-self: flex-end;
+    margin-left: auto;
+
+    font-family: var(--letra-200);
+}
+
+.mensaje-otro {
+    background-color: var(--color-500);
+    border: 1px solid #ddd;
+
+    font-family: var(--letra-200);
+}
+
+.mensaje-header {
+    font-size: 12px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mensaje-autor {
+   
+    font-family: var(--letra-200);
+    font-weight: bold;
+
+
+}
+
+.mensaje-fecha {
+    color: #666;
+}
+
+.mensaje-texto {
+    font-size: 14px;
+    word-wrap: break-word;
 }
 
 
-
-#message-container{
+#message-container {
+    height: calc(100vh - 200px);
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    padding:10px;
-    font-size: 20px;
+    padding: 100px;
+}
+
+.wrapperFirst {
+    width: 30%;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.wrapperSecond {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.chatConteiner {
+    display: flex;
+    height: 100vh;
+}
+
+#chatSection {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.no-mensajes {
+    text-align: center;
+    color: #999;
+    padding: 50px;
     font-family: var(--letra-200);
+}
+
+
+.sendMessage {
+    
+    border-top: 1px solid #ddd;
+    background: var(--color-400);
+    position: absolute;
+    bottom: 1px;
+    width: 70%;
+}
+
+#send-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    
+}
+
+.imessage {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
     border-radius: 20px;
+    outline: none;
+    width: 200px;
+    font-family: var(--letra-200);
 }
 
-.my-message{
-    align-self: flex-end;
-    text-align: right;
-    background: #4CAF50;
-    color: white;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 8px;
+.btnSend {
+    background: var(--color-300);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin: 10px;
 }
 
-.other-message{
-    align-self: flex-start;
-    text-align: left;
-    background: #e5e5ea;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 8px;
+.imgSend {
+    width: 40px;
+    height: 40px;
+    color: var(--color-400);
 }
