@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MundiChat - Mensajes</title>
-    <script src="https://cdn.socket.io/4.8.3/socket.io.min.js"></script>
+  
+  
+
      <link rel="stylesheet" href="/bootstrap-icons-1.13.1/bootstrap-icons.css">
     <link rel="stylesheet" href="/bootstrap-5.3.8-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/header.css">
@@ -14,6 +16,7 @@
 
 <body>
 <script src="/js/check.js"></script>
+
 
     <div id="header-login"></div>
 
@@ -34,6 +37,37 @@
         <div class="wrapperSecond">
 
 
+            <!-- Contenedor de videollamada (inicialmente oculto) -->
+<div id="video-call-container" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <div style="position: relative; width: 80%; max-width: 800px;">
+        <!-- Video del remoto (grande) -->
+        <video id="remote-video" autoplay playsinline style="width: 100%; border-radius: 10px; background: #333;"></video>
+        
+        <!-- Video local (pequeño, esquina) -->
+        <video id="local-video" autoplay playsinline muted style="position: absolute; bottom: 20px; right: 20px; width: 200px; border-radius: 10px; border: 2px solid white; background: #333;"></video>
+    </div>
+    
+    <!-- Controles -->
+    <div style="margin-top: 20px; display: flex; gap: 15px;">
+        <button onclick="toggleMic()" class="btn btn-light">
+            <i class="bi bi-mic-fill"></i> Mic
+        </button>
+        <button onclick="toggleCamera()" class="btn btn-light">
+            <i class="bi bi-camera-video-fill"></i> Cámara
+        </button>
+        <button onclick="finalizarLlamada()" class="btn btn-danger">
+            <i class="bi bi-telephone-x-fill"></i> Colgar
+        </button>
+    </div>
+</div>
+
+<!-- Botón para iniciar llamada en el header del chat -->
+<!-- Agrega esto en tu #chat-header o cerca -->
+<button id="btn-llamar" class="btn btn-success" style="margin-left: auto;">
+    <i class="bi bi-telephone-fill"></i> Llamar
+</button>
+            
             <div id="chatSection" style="display:none;">
 
 
@@ -60,7 +94,8 @@
         </div>
     </div>
 
-    <script src="/js/messageChat.js"></script>
+   <!--    <script type="module" src="/js/callChat.js"></script> -->
+    <script type="module" src="/js/messageChat.js"></script>
     <script src="/js/partial.js"></script>
     <script src="/bootstrap-5.3.8-dist/js/bootstrap.min.js"></script>
   

@@ -12,7 +12,10 @@ const {createServer} = require('node:http')
 const server = createServer(app);
 
 //in/out de entrada  y salida
-const io = new Server(server);
+const io = new Server(server,{
+    connectionStateRecovery:{}
+});
+
 
 io.on('connection', (socket) => {
     console.log('Usuario conectado:', socket.id);
@@ -32,6 +35,64 @@ io.on('connection', (socket) => {
         io.to(`chat_${data.chatId}`).emit('chat message', data);
     });
     
+     
+    //!llamadas
+
+    //Escoger sala o user
+    socket.on('union-llamada', (chatId)=>{
+        const salaNombre = `call_${chatId}`;
+        socket.join(salaNombre);
+
+        const sala = io.sockets.adapter.rooms.get(salaNombre);
+
+        const numCliente = sala ? sala.size:0;
+
+        if(numCliente ===1){
+            socket.emit('llamada-creada' , salaNombre);
+
+        }else if(numCliente ===2){
+
+            socket.to(salaNombre).emit('usuario-unido-llamada',socket.id);
+            socket.emit('llamada-unida',salaNombre);
+
+        }else{
+            socket.emit('llamada-llena') //! solo es de 1 a 1
+        }
+    });
+
+    socket.on('llamada-lista' ,(chatId)=>{
+     
+        socket.to(`call_${chatId}`).emit('llamada-lista');
+    });
+
+    socket.on('ofrecer' ,(data) =>{
+        socket.to(`call_${data.chatId}`).emit('ofrecer',{
+            offer:data.offer,
+            from: socket.id
+        });
+    });
+
+     socket.on('preguntar' ,(data) =>{
+        socket.to(`call_${data.chatId}`).emit('preguntar',{
+            answer:data.answer,
+            from: socket.id
+        });
+    });
+
+     socket.on('candidatos' ,(data) =>{
+        socket.to(`call_${data.chatId}`).emit('candidatos',{
+            candidate:data.candidate,
+            from: socket.id
+        });
+    });
+
+
+    socket.on('colgar-llamada' ,(chatId) =>{
+        const salaNombre = `call_${chatId}`;
+        socket.leave(salaNombre);
+        socket.to(salaNombre).emit('peer-left-call');
+    });
+
     socket.on('disconnect', () => {
         console.log('Usuario desconectado:', socket.id);
     });
@@ -124,7 +185,7 @@ app.post('/feature-login', async (req, res) => {
         res.json({
           msg: mensaje,
           info: result[0][0],
-          redirect: "/place"
+          redirect: "/"
         });
 
       } else {

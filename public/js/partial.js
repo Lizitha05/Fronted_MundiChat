@@ -1,6 +1,22 @@
-fetch("/header") .then(response => response.text()) .then(data => { document.getElementById("header").innerHTML = data; });
+const usuario = localStorage.getItem('usuario');
+    /*console.log(usuario)*/
 
 
+if(!localStorage.getItem('usuario')){
+    /*console.log("No hay sesion");*/
+    
+/* fetch("/header") .then(response => response.text()) .then(data => { document.getElementById("header").innerHTML = data; 
+
+});
+ */
+    window.location.href = '/register';
+}else{
+   cargarHeader();
+}
+
+
+function cargarHeader(){
+    
 fetch("/header-login") .then(response => response.text()) .then(data => { 
     document.getElementById("header-login").innerHTML = data; 
     
@@ -8,6 +24,7 @@ fetch("/header-login") .then(response => response.text()) .then(data => {
 
 });
 
+}
 
 
 function cargarFotoPerfil(){

@@ -4,31 +4,6 @@ function getUsuarioId() {
     return usuario.usuarioPK || null;
 }
 
-async function MostrarCupones() {
-    try{
-        const respuesta = await fetch('/request-cupones');
-        const cupones = await respuesta.json();
-
-        const contenedor = document.getElementById('coupon-section');
-        if (!contenedor) return;
-        contenedor.innerHTML = cupones.map(cupon => {
-            return `
-            <div class="coupon-info" data-id="${cupon.cuponPK}">
-                <h6 class="title-coupon">${cupon.TituloCupon}</h6>
-                <p class="content-coupon">${cupon.descripcion || ''}</p>
-                <div class="hora-time">
-                        <input class="iEvent" type="date" value="${cupon.vencimiento || ''}" disabled>
-                    </div>
-                <p class="code-coupon">${cupon.CodigoCupon || ''}</p>
-            </div>
-            `;
-        }).join('');
-        
-    }
-    catch(Error){
-         console.error('Error al cargar cupones:', Error);
-    }
-}
 
 async function MostrarCupones() {
     const usuario_id = getUsuarioId();
