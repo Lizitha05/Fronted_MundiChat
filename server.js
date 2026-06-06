@@ -118,13 +118,13 @@ server.listen(PORT, () => {
 // Conexión a la base de datos
 
 //!Aby
-/* const Db = mysql.createConnection({
+const Db = mysql.createConnection({
   host: '127.0.0.1',
   user: 'mundichat',
   password: 'abc123',
   database: 'mundiChat',
   port: 3306
-}); */
+});
 
 //!Andreiy
 /* const Db = mysql.createConnection({
@@ -136,13 +136,13 @@ server.listen(PORT, () => {
 }); */
 
 //!Liz
-const Db = mysql.createConnection({
+/* const Db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Noe_050703',
   database: 'mundiChat',
   port: 3306
-});
+}); */
 // Validar conexion a la base de datos
 Db.connect((ErrorConexion) => {
 
@@ -185,7 +185,7 @@ app.post('/feature-login', async (req, res) => {
         res.json({
           msg: mensaje,
           info: result[0][0],
-          redirect: "/"
+          redirect: "/index-login"
         });
 
       } else {

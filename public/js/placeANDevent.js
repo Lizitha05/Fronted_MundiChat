@@ -4,10 +4,8 @@ function getUsuarioId() {
     return usuario.usuarioPK || null;
 }
 
-
 //VARIABLE GLOBAL PARA LOS EVENTOS
 let eventosConfirmadosBD = [];
-
 
 async function cargarAsistencias() {
     const usuario_id = getUsuarioId();
@@ -15,7 +13,6 @@ async function cargarAsistencias() {
         eventosConfirmadosBD = [];
         return;
     }
-    
     try {
         const respuesta = await fetch(`/mis-asistencias/${usuario_id}`);
         eventosConfirmadosBD = await respuesta.json();
@@ -25,7 +22,6 @@ async function cargarAsistencias() {
         eventosConfirmadosBD = [];
     }
 }
-
 
 //HTML DEL PLACE
 async function cargarEventos() {

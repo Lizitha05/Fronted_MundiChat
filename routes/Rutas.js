@@ -33,6 +33,13 @@ router.get('/' ,
     }
 )
 
+router.get('/index-login' , 
+    (req,res)=>{
+         res.sendFile('Html/index-login.html', {  root: './public'  })
+
+    }
+)
+
 // ruta Universal, aqui para cuando pongas "localhost:(puerto)" aparezca el .html que le pongas aqui
 
 //*Header
