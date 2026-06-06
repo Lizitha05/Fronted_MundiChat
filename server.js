@@ -1,4 +1,4 @@
-
+//----------------------------------------------------------------------------------------------------- CONEXIONES A LA BASE
 const express = require('express');
 const mysql = require('mysql2');
 const multer = require('multer');
@@ -11,24 +11,23 @@ const {createServer} = require('node:http')
 
 const server = createServer(app);
 
-//in/out de entrada  y salida
+
 const io = new Server(server);
 
+//Esta conexion es del socket (duh)
 io.on('connection', (socket) => {
     console.log('Usuario conectado:', socket.id);
     
-    // Unirse a una sala de chat específica
+
     socket.on('join chat', (chatId) => {
         socket.join(`chat_${chatId}`);
         console.log(`Usuario ${socket.id} unido a sala: chat_${chatId}`);
     });
     
-    // Enviar mensaje a un chat específico
+    
     socket.on('chat message', (data) => {
-        // data debe contener: { chatId, mensaje, autorPK, autorNombre }
         console.log(`Mensaje para chat_${data.chatId}: ${data.mensaje.texto}`);
         
-        // Emitir SOLO a los usuarios en esa sala
         io.to(`chat_${data.chatId}`).emit('chat message', data);
     });
     
@@ -37,7 +36,7 @@ io.on('connection', (socket) => {
     });
 });
 
-const PagesRoutes = require('./routes/Rutas.js'); //Variable que guarda la direccion de mis rutas
+const PagesRoutes = require('./routes/Rutas.js'); 
 
 const PORT = 3001;
 app.use(express.urlencoded({ extended: true }));
@@ -57,13 +56,13 @@ server.listen(PORT, () => {
 // Conexión a la base de datos
 
 //!Aby
-/* const Db = mysql.createConnection({
+const Db = mysql.createConnection({
   host: '127.0.0.1',
   user: 'mundichat',
   password: 'abc123',
   database: 'mundiChat',
   port: 3306
-}); */
+});
 
 //!Andreiy
 /* const Db = mysql.createConnection({
@@ -75,14 +74,15 @@ server.listen(PORT, () => {
 }); */
 
 //!Liz
-const Db = mysql.createConnection({
+/* const Db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Noe_050703',
   database: 'mundiChat',
   port: 3306
-});
-// Validar conexion a la base de datos
+}); */
+
+//catch por si no se conecta la base
 Db.connect((ErrorConexion) => {
 
   if (ErrorConexion) {
@@ -100,8 +100,9 @@ const archivo = multer({
 }
 )
 
-//Iniciar sesion
+//----------------------------------------------------------------------------------------------------- USUARIOS
 
+//Iniciar sesion
 app.post('/feature-login', async (req, res) => {
 
   const { mailUser, passwordUser } = req.body; //Estos son los name de los input
@@ -124,7 +125,7 @@ app.post('/feature-login', async (req, res) => {
         res.json({
           msg: mensaje,
           info: result[0][0],
-          redirect: "/place"
+          redirect: "/"
         });
 
       } else {
@@ -136,7 +137,6 @@ app.post('/feature-login', async (req, res) => {
 });
 
 //Registrar usuario
-
 app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) => {
 
   if (!req.file) {
@@ -153,12 +153,12 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 
     return res.status(400).json({
    
-      msg: 'La imagen excede el tamaño máximo permitido (5MB)';
+      msg: 'La imagen excede el tamaño maximo permitido (5MB)';
       
     });
    } */
   
-  // Validar que los campos no estén vacíos
+  // Validar que los campos no esten vacíos
   if (!mail || !nickname || !nombre || !date || !password ) {
     return res.status(400).json({ msg: 'Todos los campos son obligatorios' });
   }
@@ -166,7 +166,7 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 
   const checkEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!checkEmail.test(mail)) {
-    return res.status(400).json({ msg: 'El correo no es válido' });
+    return res.status(400).json({ msg: 'El correo no es valido' });
   }
 
 
@@ -229,7 +229,6 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 })
 
 //Editar usuario
-
 app.put('/feature-edit',archivo.single('fileOpeneReg'), async (req, res) => {
 
 
@@ -314,7 +313,10 @@ app.put('/feature-edit',archivo.single('fileOpeneReg'), async (req, res) => {
 })
 
 
-//TRAER CUPONES DE USUARIO
+
+//----------------------------------------------------------------------------------------------------- EVENTOS Y CUPONES
+
+//TRAER CUPONES DE USUARIO (cupones)
 app.get('/request-cupones/:usuario_id', (req, res) => {
     const { usuario_id } = req.params;
     Db.query(
@@ -333,7 +335,7 @@ app.get('/request-cupones/:usuario_id', (req, res) => {
     );
 });
 
-//TRAER EVENTOS DE USUARIO
+//TRAER EVENTOS DE USUARIO (Eventos)
 app.get('/request-eventos', (req, res) => {
     Db.query(
         'SELECT * FROM Evento WHERE EventoActivo = 1',
@@ -347,10 +349,7 @@ app.get('/request-eventos', (req, res) => {
     );
 });
 
-
-//!Chats
-
-//CONFIRMAR ASISTENCIA DE USUARIO
+//Este confirma aistencia de usuario
 app.post('/confirmar-asistencia', (req, res) => {
     const { evento_id, usuario_id } = req.body;
     
@@ -367,7 +366,7 @@ app.post('/confirmar-asistencia', (req, res) => {
     );
 });
 
-//TRAER ASISTENCIAS DEL USUARIO (NUEVO)
+//Trae nuevas asistencias de usuarios (Eventos)
 app.get('/mis-asistencias/:usuario_id', (req, res) => {
     const { usuario_id } = req.params;
     
@@ -385,8 +384,7 @@ app.get('/mis-asistencias/:usuario_id', (req, res) => {
     );
 });
 
-
-//CONFIRMAR ASISTENCIA DE USUARIO
+//Confirma las asitencias de usuario (Eventos)
 app.post('/confirmar-asistencia', (req, res) => {
     const { evento_id, usuario_id } = req.body;
     
@@ -403,24 +401,10 @@ app.post('/confirmar-asistencia', (req, res) => {
     );
 });
 
-//TRAER ASISTENCIAS DEL USUARIO (NUEVO)
-app.get('/mis-asistencias/:usuario_id', (req, res) => {
-    const { usuario_id } = req.params;
-    
-    Db.query(
-        'SELECT EventoFK FROM UsuarioEvento WHERE UsuarioFK = ?',
-        [usuario_id],
-        (err, result) => {
-            if (err) {
-                console.log(err);
-                return res.status(500).json({ msg: 'Error en conexión con la base' });
-            }
-            const eventosConfirmados = result.map(row => row.EventoFK);
-            res.json(eventosConfirmados);
-        }
-    );
-});
-// ========== 1. OBTENER TODOS LOS USUARIOS (excepto el actual) ==========
+
+//----------------------------------------------------------------------------------------------------- CHATS
+
+// Este obtiene usuarios (no el actual)
 app.get('/api/usuarios/:usuarioActualId', (req, res) => {
     const { usuarioActualId } = req.params;
     
@@ -460,7 +444,9 @@ app.get('/api/usuarios/:usuarioActualId', (req, res) => {
     });
 });
 
-// ========== 2. OBTENER O CREAR CHAT CON UN USUARIO ==========
+
+
+
 app.get('/api/obtener-o-crear-chat/:usuario1Id/:usuario2Id', (req, res) => {
     const { usuario1Id, usuario2Id } = req.params;
     
@@ -517,7 +503,9 @@ app.get('/api/obtener-o-crear-chat/:usuario1Id/:usuario2Id', (req, res) => {
                 });
             });
         } else {
-            // Crear nuevo chat privado
+
+
+            // AQUI SE CRE UN NUEVO CHAT PRIVADOO!!!!!!!!
             const crearChatQuery = `
                 INSERT INTO chat (nombreChat, tipoSesion, creadorChatFK)
                 VALUES (?, 'privado', ?)
@@ -561,7 +549,9 @@ app.get('/api/obtener-o-crear-chat/:usuario1Id/:usuario2Id', (req, res) => {
     });
 });
 
-// ========== 3. OBTENER MENSAJES DE UN CHAT ==========
+
+
+//Obtiene mensajes de chat
 app.get('/api/mensajes/:chatId', (req, res) => {
     const { chatId } = req.params;
     
@@ -590,7 +580,7 @@ app.get('/api/mensajes/:chatId', (req, res) => {
 
 
 
-// ========== CORREGIR LA RUTA /api/mensajes (quitar updateChatQuery) ==========
+
 app.post('/api/mensajes', (req, res) => {
     const { chatFK, texto, creadorMensajeFK } = req.body;
     const fecha = new Date();
@@ -616,7 +606,9 @@ app.post('/api/mensajes', (req, res) => {
         res.json({ success: true, mensaje: nuevoMensaje });
     });
 });
-// ========== 5. OBTENER ÚLTIMO MENSAJE DEL CHAT ==========
+
+
+//agarra el ultimo mensaje del chat
 app.get('/api/ultimo-mensaje/:chatId', (req, res) => {
     const { chatId } = req.params;
     
@@ -636,7 +628,9 @@ app.get('/api/ultimo-mensaje/:chatId', (req, res) => {
         res.json({ success: true, ultimoMensaje: result[0] || null });
     });
 });
-// ========== 6. OBTENER TODOS LOS CHATS DE UN USUARIO ==========
+
+
+
 app.get('/api/mis-chats/:usuarioId', (req, res) => {
     const { usuarioId } = req.params;
     
@@ -667,7 +661,9 @@ app.get('/api/mis-chats/:usuarioId', (req, res) => {
     });
 });
 
-// ========== 7. OBTENER USUARIOS (versión simplificada sin mensajes) ==========
+
+
+
 app.get('/api/usuarios-simple/:usuarioActualId', (req, res) => {
     const { usuarioActualId } = req.params;
     
@@ -692,7 +688,9 @@ app.get('/api/usuarios-simple/:usuarioActualId', (req, res) => {
     });
 });
 
-// ========== 8. VERIFICAR CHAT EXISTENTE ==========
+
+
+//checa si el chat existe
 app.get('/api/verificar-chat/:usuario1Id/:usuario2Id', (req, res) => {
     const { usuario1Id, usuario2Id } = req.params;
     

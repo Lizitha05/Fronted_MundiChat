@@ -1,6 +1,15 @@
 fetch("/header") .then(response => response.text()) .then(data => { document.getElementById("header").innerHTML = data; });
 
 
+
+const usuario = localStorage.getItem('usuario');
+    /*console.log(usuario)*/
+
+
+if(!localStorage.getItem('usuario')){
+    fetch("/header") .then(response => response.text()) .then(data => { document.getElementById("header").innerHTML = data; });
+
+}else{
 fetch("/header-login") .then(response => response.text()) .then(data => { 
     document.getElementById("header-login").innerHTML = data; 
     
@@ -8,7 +17,7 @@ fetch("/header-login") .then(response => response.text()) .then(data => {
 
 });
 
-
+}
 
 function cargarFotoPerfil(){
 

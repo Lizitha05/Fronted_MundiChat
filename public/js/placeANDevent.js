@@ -54,7 +54,7 @@ async function cargarEventos() {
                 <label class="bookmark-toggle">
                     <input type="checkbox" 
                         ${enLocalStorage ? 'checked' : ''}
-                        onchange="toggleBookmark(this, ${evento.IdEvento}, '${evento.TituloEvento}', '${evento.DescpEvento || ''}', '${formatearFecha(evento.FechaEvento)}')">
+                        onchange="GuardaEventoMISeventos(this, ${evento.IdEvento}, '${evento.TituloEvento}', '${evento.DescpEvento || ''}', '${formatearFecha(evento.FechaEvento)}')">
                     <span class="bookmark-icon"></span>
                 </label>
             </div>
@@ -65,6 +65,8 @@ async function cargarEventos() {
         console.error('Error cargando eventos:', error);
     }
 }
+
+
 
 //DESMENUSA LA DATE TIME DE LA BASE DE DATOS
 function formatearFecha(fechaString) {
@@ -77,7 +79,7 @@ function formatearFecha(fechaString) {
 }
 
 
-function toggleBookmark(checkbox, id, titulo, descripcion, fecha) {
+function GuardaEventoMISeventos(checkbox, id, titulo, descripcion, fecha) {
     const key = `bookmark_${id}`;
     
     if (checkbox.checked) {
