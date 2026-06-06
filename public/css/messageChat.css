@@ -300,3 +300,9 @@ background-color: var(--color-400);
     height: 40px;
     color: var(--color-400);
 }
+
+.conteiner-btn{
+    display: fixed;
+    top: 80px;
+    z-index: 1;
+}

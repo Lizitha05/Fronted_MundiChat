@@ -1,4 +1,4 @@
-//----------------------------------------------------------------------------------------------------- CONEXIONES A LA BASE
+
 const express = require('express');
 const mysql = require('mysql2');
 const multer = require('multer');
@@ -11,32 +11,94 @@ const {createServer} = require('node:http')
 
 const server = createServer(app);
 
+//in/out de entrada  y salida
+const io = new Server(server,{
+    connectionStateRecovery:{}
+});
 
-const io = new Server(server);
 
-//Esta conexion es del socket (duh)
 io.on('connection', (socket) => {
     console.log('Usuario conectado:', socket.id);
     
-
+    // Unirse a una sala de chat específica
     socket.on('join chat', (chatId) => {
         socket.join(`chat_${chatId}`);
         console.log(`Usuario ${socket.id} unido a sala: chat_${chatId}`);
     });
     
-    
+    // Enviar mensaje a un chat específico
     socket.on('chat message', (data) => {
+        // data debe contener: { chatId, mensaje, autorPK, autorNombre }
         console.log(`Mensaje para chat_${data.chatId}: ${data.mensaje.texto}`);
         
+        // Emitir SOLO a los usuarios en esa sala
         io.to(`chat_${data.chatId}`).emit('chat message', data);
     });
     
+     
+    //!llamadas
+
+    //Escoger sala o user
+    socket.on('union-llamada', (chatId)=>{
+        const salaNombre = `call_${chatId}`;
+        socket.join(salaNombre);
+
+        const sala = io.sockets.adapter.rooms.get(salaNombre);
+
+        const numCliente = sala ? sala.size:0;
+
+        if(numCliente ===1){
+            socket.emit('llamada-creada' , salaNombre);
+
+        }else if(numCliente ===2){
+
+            socket.to(salaNombre).emit('usuario-unido-llamada',socket.id);
+            socket.emit('llamada-unida',salaNombre);
+
+        }else{
+            socket.emit('llamada-llena') //! solo es de 1 a 1
+        }
+    });
+
+    socket.on('llamada-lista' ,(chatId)=>{
+     
+        socket.to(`call_${chatId}`).emit('llamada-lista');
+    });
+
+    socket.on('ofrecer' ,(data) =>{
+        socket.to(`call_${data.chatId}`).emit('ofrecer',{
+            offer:data.offer,
+            from: socket.id
+        });
+    });
+
+     socket.on('preguntar' ,(data) =>{
+        socket.to(`call_${data.chatId}`).emit('preguntar',{
+            answer:data.answer,
+            from: socket.id
+        });
+    });
+
+     socket.on('candidatos' ,(data) =>{
+        socket.to(`call_${data.chatId}`).emit('candidatos',{
+            candidate:data.candidate,
+            from: socket.id
+        });
+    });
+
+
+    socket.on('colgar-llamada' ,(chatId) =>{
+        const salaNombre = `call_${chatId}`;
+        socket.leave(salaNombre);
+        socket.to(salaNombre).emit('peer-left-call');
+    });
+
     socket.on('disconnect', () => {
         console.log('Usuario desconectado:', socket.id);
     });
 });
 
-const PagesRoutes = require('./routes/Rutas.js'); 
+const PagesRoutes = require('./routes/Rutas.js'); //Variable que guarda la direccion de mis rutas
 
 const PORT = 3001;
 app.use(express.urlencoded({ extended: true }));
@@ -56,13 +118,13 @@ server.listen(PORT, () => {
 // Conexión a la base de datos
 
 //!Aby
-const Db = mysql.createConnection({
+/* const Db = mysql.createConnection({
   host: '127.0.0.1',
   user: 'mundichat',
   password: 'abc123',
   database: 'mundiChat',
   port: 3306
-});
+}); */
 
 //!Andreiy
 /* const Db = mysql.createConnection({
@@ -74,15 +136,14 @@ const Db = mysql.createConnection({
 }); */
 
 //!Liz
-/* const Db = mysql.createConnection({
+const Db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'Noe_050703',
   database: 'mundiChat',
   port: 3306
-}); */
-
-//catch por si no se conecta la base
+});
+// Validar conexion a la base de datos
 Db.connect((ErrorConexion) => {
 
   if (ErrorConexion) {
@@ -100,9 +161,8 @@ const archivo = multer({
 }
 )
 
-//----------------------------------------------------------------------------------------------------- USUARIOS
-
 //Iniciar sesion
+
 app.post('/feature-login', async (req, res) => {
 
   const { mailUser, passwordUser } = req.body; //Estos son los name de los input
@@ -137,6 +197,7 @@ app.post('/feature-login', async (req, res) => {
 });
 
 //Registrar usuario
+
 app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) => {
 
   if (!req.file) {
@@ -153,12 +214,12 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 
     return res.status(400).json({
    
-      msg: 'La imagen excede el tamaño maximo permitido (5MB)';
+      msg: 'La imagen excede el tamaño máximo permitido (5MB)';
       
     });
    } */
   
-  // Validar que los campos no esten vacíos
+  // Validar que los campos no estén vacíos
   if (!mail || !nickname || !nombre || !date || !password ) {
     return res.status(400).json({ msg: 'Todos los campos son obligatorios' });
   }
@@ -166,7 +227,7 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 
   const checkEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!checkEmail.test(mail)) {
-    return res.status(400).json({ msg: 'El correo no es valido' });
+    return res.status(400).json({ msg: 'El correo no es válido' });
   }
 
 
@@ -229,6 +290,7 @@ app.post('/feature-register',archivo.single('fileOpeneReg'), async (req, res) =>
 })
 
 //Editar usuario
+
 app.put('/feature-edit',archivo.single('fileOpeneReg'), async (req, res) => {
 
 
@@ -313,10 +375,7 @@ app.put('/feature-edit',archivo.single('fileOpeneReg'), async (req, res) => {
 })
 
 
-
-//----------------------------------------------------------------------------------------------------- EVENTOS Y CUPONES
-
-//TRAER CUPONES DE USUARIO (cupones)
+//TRAER CUPONES DE USUARIO
 app.get('/request-cupones/:usuario_id', (req, res) => {
     const { usuario_id } = req.params;
     Db.query(
@@ -335,7 +394,7 @@ app.get('/request-cupones/:usuario_id', (req, res) => {
     );
 });
 
-//TRAER EVENTOS DE USUARIO (Eventos)
+//TRAER EVENTOS DE USUARIO
 app.get('/request-eventos', (req, res) => {
     Db.query(
         'SELECT * FROM Evento WHERE EventoActivo = 1',
@@ -349,7 +408,10 @@ app.get('/request-eventos', (req, res) => {
     );
 });
 
-//Este confirma aistencia de usuario
+
+//!Chats
+
+//CONFIRMAR ASISTENCIA DE USUARIO
 app.post('/confirmar-asistencia', (req, res) => {
     const { evento_id, usuario_id } = req.body;
     
@@ -366,7 +428,7 @@ app.post('/confirmar-asistencia', (req, res) => {
     );
 });
 
-//Trae nuevas asistencias de usuarios (Eventos)
+//TRAER ASISTENCIAS DEL USUARIO (NUEVO)
 app.get('/mis-asistencias/:usuario_id', (req, res) => {
     const { usuario_id } = req.params;
     
@@ -384,7 +446,8 @@ app.get('/mis-asistencias/:usuario_id', (req, res) => {
     );
 });
 
-//Confirma las asitencias de usuario (Eventos)
+
+//CONFIRMAR ASISTENCIA DE USUARIO
 app.post('/confirmar-asistencia', (req, res) => {
     const { evento_id, usuario_id } = req.body;
     
@@ -401,10 +464,24 @@ app.post('/confirmar-asistencia', (req, res) => {
     );
 });
 
-
-//----------------------------------------------------------------------------------------------------- CHATS
-
-// Este obtiene usuarios (no el actual)
+//TRAER ASISTENCIAS DEL USUARIO (NUEVO)
+app.get('/mis-asistencias/:usuario_id', (req, res) => {
+    const { usuario_id } = req.params;
+    
+    Db.query(
+        'SELECT EventoFK FROM UsuarioEvento WHERE UsuarioFK = ?',
+        [usuario_id],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+                return res.status(500).json({ msg: 'Error en conexión con la base' });
+            }
+            const eventosConfirmados = result.map(row => row.EventoFK);
+            res.json(eventosConfirmados);
+        }
+    );
+});
+// ========== 1. OBTENER TODOS LOS USUARIOS (excepto el actual) ==========
 app.get('/api/usuarios/:usuarioActualId', (req, res) => {
     const { usuarioActualId } = req.params;
     
@@ -444,9 +521,7 @@ app.get('/api/usuarios/:usuarioActualId', (req, res) => {
     });
 });
 
-
-
-
+// ========== 2. OBTENER O CREAR CHAT CON UN USUARIO ==========
 app.get('/api/obtener-o-crear-chat/:usuario1Id/:usuario2Id', (req, res) => {
     const { usuario1Id, usuario2Id } = req.params;
     
@@ -503,9 +578,7 @@ app.get('/api/obtener-o-crear-chat/:usuario1Id/:usuario2Id', (req, res) => {
                 });
             });
         } else {
-
-
-            // AQUI SE CRE UN NUEVO CHAT PRIVADOO!!!!!!!!
+            // Crear nuevo chat privado
             const crearChatQuery = `
                 INSERT INTO chat (nombreChat, tipoSesion, creadorChatFK)
                 VALUES (?, 'privado', ?)
@@ -549,9 +622,7 @@ app.get('/api/obtener-o-crear-chat/:usuario1Id/:usuario2Id', (req, res) => {
     });
 });
 
-
-
-//Obtiene mensajes de chat
+// ========== 3. OBTENER MENSAJES DE UN CHAT ==========
 app.get('/api/mensajes/:chatId', (req, res) => {
     const { chatId } = req.params;
     
@@ -580,7 +651,7 @@ app.get('/api/mensajes/:chatId', (req, res) => {
 
 
 
-
+// ========== CORREGIR LA RUTA /api/mensajes (quitar updateChatQuery) ==========
 app.post('/api/mensajes', (req, res) => {
     const { chatFK, texto, creadorMensajeFK } = req.body;
     const fecha = new Date();
@@ -606,9 +677,7 @@ app.post('/api/mensajes', (req, res) => {
         res.json({ success: true, mensaje: nuevoMensaje });
     });
 });
-
-
-//agarra el ultimo mensaje del chat
+// ========== 5. OBTENER ÚLTIMO MENSAJE DEL CHAT ==========
 app.get('/api/ultimo-mensaje/:chatId', (req, res) => {
     const { chatId } = req.params;
     
@@ -628,9 +697,7 @@ app.get('/api/ultimo-mensaje/:chatId', (req, res) => {
         res.json({ success: true, ultimoMensaje: result[0] || null });
     });
 });
-
-
-
+// ========== 6. OBTENER TODOS LOS CHATS DE UN USUARIO ==========
 app.get('/api/mis-chats/:usuarioId', (req, res) => {
     const { usuarioId } = req.params;
     
@@ -661,9 +728,7 @@ app.get('/api/mis-chats/:usuarioId', (req, res) => {
     });
 });
 
-
-
-
+// ========== 7. OBTENER USUARIOS (versión simplificada sin mensajes) ==========
 app.get('/api/usuarios-simple/:usuarioActualId', (req, res) => {
     const { usuarioActualId } = req.params;
     
@@ -688,9 +753,7 @@ app.get('/api/usuarios-simple/:usuarioActualId', (req, res) => {
     });
 });
 
-
-
-//checa si el chat existe
+// ========== 8. VERIFICAR CHAT EXISTENTE ==========
 app.get('/api/verificar-chat/:usuario1Id/:usuario2Id', (req, res) => {
     const { usuario1Id, usuario2Id } = req.params;
     
